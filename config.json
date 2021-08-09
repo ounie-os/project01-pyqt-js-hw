@@ -1,0 +1,132 @@
+{
+    "filepath": "D:/python/py-qt-gui/002 测试表/",
+    "raw_tables": {
+        "nengyuanziyuan": "公共机构能源资源消费统计分级汇总情况2020.xls",
+        "jianzhuxinxi": "能耗综合查询-建筑物信息2020.xls",
+        "shebeixinxi": "能耗综合查询-重点用能设备信息.xls"
+    },
+    "target_table": {
+        "Jibiao1": "基1-1表.xls",
+        "Jibiao2": "基2表.xls"
+    },
+    "raw_parameters": {
+        "table_nengyuan": {
+            "raw_para01": "单位名称",
+            "raw_para02": "地址",
+            "raw_para05_1": "单位类型",
+            "raw_para07_1": "办公建筑面积",
+            "raw_para12": "联络员",
+            "raw_para13": "固定电话",
+            "raw_para14": "总用电(千瓦时)",
+            "raw_para15": "天然气总用量(立方米)",
+            "raw_para16": "总用水(吨)",
+            "raw_para22": "所属行政区",
+            "raw_para24": "总能耗(千克标准煤)",
+            "raw_para25": "面积均能耗(千克标准煤/平方米)",
+            "raw_para11": "2",
+            "raw_para_tmp001": "",
+            "raw_para_tmp002": "",
+            "raw_para_tmp003": ""
+        },
+        "table_jianzhu": {
+            "raw_para03": "竣工时间",
+            "raw_para04": "建筑类型",
+            "raw_para05": "建筑功能",
+            "raw_para06": "地上层数",
+            "raw_para07_2": "建筑面积(平方米)",
+            "raw_para07_3": "自用建筑面积(平方米)",
+            "raw_para10": "建筑节能标准",
+            "raw_para19": "单位名称",
+            "raw_para20": "建筑名称",
+            "raw_para_tmp004": "",
+            "raw_para_tmp005": "",
+            "raw_para_tmp006": ""
+        },
+        "table_shebei": {
+            "raw_para08(09)": "设备名称",
+            "raw_para21": "单位名称",
+            "raw_para_tmp007": "",
+            "raw_para_tmp008": "",
+            "raw_para_tmp009": ""
+        }
+    },
+    "target_parameters": {
+        "table_jibiao1": {
+            "tar_para01": "建筑详细名称",
+            "tar_para02": "建筑详细地址",
+            "tar_para03": "竣工年度",
+            "tar_para04": "建筑类型",
+            "tar_para05": "建筑功能",
+            "tar_para06": "建筑层数(层)",
+            "tar_para07": "建筑面积(平方米)",
+            "tar_para08": "供热方式",
+            "tar_para09": "供冷方式",
+            "tar_para10": "所执行的建筑节能标准",
+            "tar_para11": "是否实施节能改造",
+            "tar_para12": "联系人",
+            "tar_para13": "联系电话",
+            "tar_para17": "统计时间",
+            "tar_para23": "建筑所属行政区划",
+            "tar_para_tmp001": "",
+            "tar_para_tmp002": "",
+            "tar_para_tmp003": ""
+        },
+        "table_jibiao2": {
+            "tar_para14": "电力",
+            "tar_para15": "天然气",
+            "tar_para16": "水",
+            "tar_para18": "建筑详细名称",
+            "tar_para_tmp004": "",
+            "tar_para_tmp005": "",
+            "tar_para_tmp006": ""
+        }
+    },
+    "table_data": "2021-08-09",
+    "save_filename01": "tmpJibiao01",
+    "save_filename02": "tmpJibiao02",
+    "judge_filename01": "C:/Users/Mr.HW/Desktop/DataMining_test/tmpJibiao01.csv",
+    "judge_filename02": "C:/Users/Mr.HW/Desktop/DataMining_test/tmpJibiao02.csv",
+    "judge_parameters": {
+        "judge_para01": "总用电",
+        "judge_para02": "建筑面积(平方米)",
+        "judge_para03": "",
+        "judge_para04": "",
+        "judge_para05": "",
+        "judge_para06": ""
+    },
+    "judge_parameters_range": {
+        "judge_range01": {
+            "max": "",
+            "min": "0"
+        },
+        "judge_range02": {
+            "max": "",
+            "min": "0"
+        },
+        "judge_range03": {
+            "max": "",
+            "min": ""
+        },
+        "judge_range04": {
+            "max": "",
+            "min": ""
+        },
+        "judge_range05": {
+            "max": "",
+            "min": ""
+        },
+        "judge_range06": {
+            "max": "",
+            "min": ""
+        }
+    },
+    "save_filename011": "tmpJibiao011",
+    "save_filename022": "tmpJibiao022",
+    "DB_connect": {
+        "host": "localhost",
+        "port": "3306",
+        "database": "my_test",
+        "username": "root",
+        "password": "huang123"
+    }
+}

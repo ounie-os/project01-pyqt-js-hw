@@ -33,9 +33,10 @@ class TabBar(QtWidgets.QTabBar):
             painter.restore()
 
 
-class TabWidget(QtWidgets.QTabWidget):
+class HwTabWidget(QtWidgets.QTabWidget):
     def __init__(self, *args, **kwargs):
         QtWidgets.QTabWidget.__init__(self, *args, **kwargs)
+        self.setStyleSheet("background-color: rgb(85, 170, 255);alignment:center;")
         self.setTabBar(TabBar(self))
         self.setTabPosition(QtWidgets.QTabWidget.West)
 
@@ -43,9 +44,10 @@ class TabWidget(QtWidgets.QTabWidget):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     app.setStyle(QStyleFactory.create("Fusion"))
-    w = TabWidget()
+    w = HwTabWidget()
     w.addTab(QtWidgets.QWidget(), "tab1")
     w.addTab(QtWidgets.QWidget(), "tab2")
     w.addTab(QtWidgets.QWidget(), "tab3")
+
     w.show()
     sys.exit(app.exec_())

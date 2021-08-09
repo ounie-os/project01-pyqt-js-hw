@@ -4,3 +4,8 @@ build/
 dist/
 venv/
 *.spec
+002 测试表/
+002 测试表*
+*.pdf
+*.csv
+skeleton_old.ui

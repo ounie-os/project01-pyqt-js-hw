@@ -2,6 +2,7 @@ import json
 import os.path
 import time
 
+from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QTabWidget, QMessageBox
 
@@ -20,6 +21,10 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
     def set_up_ui(self):
         self.setupUi(self)
+        
+        # 实现去掉最小化窗口的按钮
+        self.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
+
         self.show_label_date_now()
         self.set_up_signal_slot()
         self.init_placeholder_text()

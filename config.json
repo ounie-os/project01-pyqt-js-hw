@@ -81,14 +81,22 @@
             "tar_para_tmp006": ""
         }
     },
-    "table_data": "2021-08-09",
+    "table_data": "2021-08-10",
     "save_filename01": "tmpJibiao01",
     "save_filename02": "tmpJibiao02",
-    "judge_filename01": "C:/Users/Mr.HW/Desktop/DataMining_test/tmpJibiao01.csv",
-    "judge_filename02": "C:/Users/Mr.HW/Desktop/DataMining_test/tmpJibiao02.csv",
-    "judge_parameters": {
+    "judge_filename01": "tmpJibiao01.csv",
+    "judge_filename02": "tmpJibiao02.csv",
+    "judge_parameters_ro": {
         "judge_para01": "总用电",
         "judge_para02": "建筑面积(平方米)",
+        "judge_para03": "",
+        "judge_para04": "",
+        "judge_para05": "",
+        "judge_para06": ""
+    },
+    "judge_parameters": {
+        "judge_para01": "",
+        "judge_para02": "",
         "judge_para03": "",
         "judge_para04": "",
         "judge_para05": "",
@@ -97,11 +105,11 @@
     "judge_parameters_range": {
         "judge_range01": {
             "max": "",
-            "min": "0"
+            "min": ""
         },
         "judge_range02": {
             "max": "",
-            "min": "0"
+            "min": ""
         },
         "judge_range03": {
             "max": "",

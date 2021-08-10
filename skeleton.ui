@@ -1354,6 +1354,9 @@ border-radius:6px</string>
      </widget>
     </widget>
     <widget class="QPushButton" name="pushButton_9">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>640</x>
@@ -1466,6 +1469,18 @@ border-radius:6px</string>
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
@@ -1473,11 +1488,20 @@ border-radius:6px</string>
         <x>60</x>
         <y>140</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+      </property>
+      <property name="inputMask">
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
@@ -1488,6 +1512,12 @@ border-radius:6px</string>
         <width>31</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>上限：</string>
@@ -1501,6 +1531,12 @@ border-radius:6px</string>
         <width>31</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>下限：</string>
@@ -1544,8 +1580,14 @@ border-radius:6px</string>
         <x>60</x>
         <y>180</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1560,6 +1602,15 @@ border-radius:6px</string>
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_3">
       <property name="geometry">
@@ -1567,8 +1618,14 @@ border-radius:6px</string>
         <x>250</x>
         <y>140</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1580,8 +1637,14 @@ border-radius:6px</string>
         <x>250</x>
         <y>180</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1612,6 +1675,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -1641,6 +1710,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -1669,7 +1744,7 @@ font: 12pt &quot;黑体&quot;;
 border-radius:6px</string>
       </property>
       <property name="text">
-       <string>条件1</string>
+       <string>条件2</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1684,6 +1759,15 @@ border-radius:6px</string>
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_5">
       <property name="geometry">
@@ -1691,8 +1775,14 @@ border-radius:6px</string>
         <x>430</x>
         <y>140</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1704,8 +1794,14 @@ border-radius:6px</string>
         <x>430</x>
         <y>180</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1736,6 +1832,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -1765,6 +1867,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -1793,7 +1901,7 @@ font: 12pt &quot;黑体&quot;;
 border-radius:6px</string>
       </property>
       <property name="text">
-       <string>条件1</string>
+       <string>条件3</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1808,6 +1916,15 @@ border-radius:6px</string>
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_7">
       <property name="geometry">
@@ -1815,8 +1932,14 @@ border-radius:6px</string>
         <x>620</x>
         <y>140</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1828,8 +1951,14 @@ border-radius:6px</string>
         <x>620</x>
         <y>180</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1860,6 +1989,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -1889,6 +2024,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -1917,13 +2058,13 @@ font: 12pt &quot;黑体&quot;;
 border-radius:6px</string>
       </property>
       <property name="text">
-       <string>条件1</string>
+       <string>条件4</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox_33">
+     <widget class="QComboBox" name="comboBox_5">
       <property name="geometry">
        <rect>
         <x>780</x>
@@ -1932,6 +2073,15 @@ border-radius:6px</string>
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_9">
       <property name="geometry">
@@ -1939,8 +2089,14 @@ border-radius:6px</string>
         <x>800</x>
         <y>140</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1952,8 +2108,14 @@ border-radius:6px</string>
         <x>800</x>
         <y>180</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -1984,6 +2146,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -2013,6 +2181,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -2041,13 +2215,13 @@ font: 12pt &quot;黑体&quot;;
 border-radius:6px</string>
       </property>
       <property name="text">
-       <string>条件1</string>
+       <string>条件5</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox_34">
+     <widget class="QComboBox" name="comboBox_6">
       <property name="geometry">
        <rect>
         <x>970</x>
@@ -2056,6 +2230,15 @@ border-radius:6px</string>
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+      </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_11">
       <property name="geometry">
@@ -2063,8 +2246,14 @@ border-radius:6px</string>
         <x>990</x>
         <y>140</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -2076,8 +2265,14 @@ border-radius:6px</string>
         <x>990</x>
         <y>180</y>
         <width>111</width>
-        <height>20</height>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;border-width:0;border-style:outset</string>
@@ -2108,6 +2303,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -2137,6 +2338,12 @@ border-radius:6px</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -2165,7 +2372,7 @@ font: 12pt &quot;黑体&quot;;
 border-radius:6px</string>
       </property>
       <property name="text">
-       <string>条件1</string>
+       <string>条件6</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

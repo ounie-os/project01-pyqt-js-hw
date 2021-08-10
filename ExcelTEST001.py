@@ -406,6 +406,7 @@ def func_filling_table():
     end_time = time.time()
     print('运行时间：', end_time - start_time)
     print('---------------------程序运行结束---------------------')
+    return 0
 
 
 if __name__ == '__main__':

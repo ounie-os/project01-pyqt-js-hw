@@ -148,7 +148,12 @@ def judge():
         file02.to_csv(save_filename022 + '.csv', encoding='utf_8_sig', quoting=csv.QUOTE_NONNUMERIC)
         print(file01.shape[0])
         print(file02.shape[0])
-    except:
+        return 0
+    except Exception as e:
+        print(e)
         print('-----------------ERROR-----------------')
+        return -1
 
-judge()
+
+if __name__ == '__main__':
+    judge()

@@ -1,12 +1,13 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
+
 class TabBar(QtWidgets.QTabBar):
     def tabSizeHint(self, index):
         s = QtWidgets.QTabBar.tabSizeHint(self, index)
 
         # 调整每个tab bar的尺寸与布局
-        s.setWidth(s.width() + 30)
-        s.setHeight(s.height() + 50)
+        # s.setWidth(s.width() + 30)
+        # s.setHeight(s.height() + 50)
 
         s.transpose()
         return s
@@ -22,7 +23,7 @@ class TabBar(QtWidgets.QTabBar):
         painter.setFont(font)
 
         # 设置tab的位置与尺寸
-        self.setGeometry(0, 180, 133, 240)
+        self.setGeometry(0, 180, 123, 200)
 
         for i in range(self.count()):
             self.initStyleOption(opt, i)
@@ -42,6 +43,7 @@ class TabBar(QtWidgets.QTabBar):
 
             c = self.tabRect(i).center()
 
+
             # 调整x，y坐标来调整文字在tab中的位置
             c.setX(c.x() + 20)
             c.setY(c.y() + 20)
@@ -51,6 +53,9 @@ class TabBar(QtWidgets.QTabBar):
             painter.translate(-c)
             painter.drawControl(QtWidgets.QStyle.CE_TabBarTabLabel, opt)
             painter.restore()
+
+    def tabTextColor(self, index):
+        QtWidgets.QTabBar.tabTextColor(self, index)
 
 
 class HwTabWidget(QtWidgets.QTabWidget):

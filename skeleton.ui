@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1307</width>
-    <height>765</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>720</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>建筑耗能数据统计处理软件</string>
@@ -17,28 +23,37 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1311</width>
-     <height>52</height>
+     <width>1280</width>
+     <height>50</height>
     </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1280</width>
+     <height>50</height>
+    </size>
    </property>
    <property name="font">
     <font>
      <family>黑体</family>
      <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(85, 170, 255);</string>
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 170, 255);</string>
    </property>
    <property name="text">
-    <string> 建筑耗能数据统计处理软件v1.0</string>
+    <string>  建筑耗能数据统计处理软件 V1.0</string>
    </property>
    <property name="textFormat">
     <enum>Qt::PlainText</enum>
@@ -52,8 +67,8 @@
     <rect>
      <x>0</x>
      <y>50</y>
-     <width>1311</width>
-     <height>721</height>
+     <width>1280</width>
+     <height>670</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -64,14 +79,15 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>1311</width>
-     <height>16777215</height>
+     <width>1280</width>
+     <height>670</height>
     </size>
    </property>
    <property name="font">
     <font>
      <family>黑体</family>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
+     <kerning>false</kerning>
     </font>
    </property>
    <property name="layoutDirection">
@@ -81,7 +97,7 @@
     <string notr="true">background-color: rgb(218, 227, 243);</string>
    </property>
    <property name="tabPosition">
-    <enum>QTabWidget::North</enum>
+    <enum>QTabWidget::West</enum>
    </property>
    <property name="tabShape">
     <enum>QTabWidget::Rounded</enum>
@@ -99,7 +115,7 @@
     <bool>false</bool>
    </property>
    <property name="tabBarAutoHide">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -108,9 +124,9 @@
     <widget class="QWidget" name="widget" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>40</x>
        <y>40</y>
-       <width>321</width>
+       <width>341</width>
        <height>191</height>
       </rect>
      </property>
@@ -129,7 +145,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -137,8 +153,9 @@
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;
+color: rgb(85, 170, 255);</string>
       </property>
       <property name="text">
        <string>原表1</string>
@@ -161,6 +178,9 @@ border-radius:6px</string>
         <family>黑体</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>选择文件</string>
@@ -186,6 +206,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(185, 185, 185);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -200,9 +223,9 @@ border-radius:6px</string>
     <widget class="QWidget" name="widget_2" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>40</x>
        <y>230</y>
-       <width>321</width>
+       <width>341</width>
        <height>191</height>
       </rect>
      </property>
@@ -221,7 +244,7 @@ border-radius:6px</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -229,8 +252,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;color: rgb(85, 170, 255);</string>
       </property>
       <property name="text">
        <string>原表2</string>
@@ -253,6 +276,9 @@ border-radius:6px</string>
         <family>黑体</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>选择文件</string>
@@ -277,6 +303,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(185, 185, 185);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -291,10 +320,10 @@ border-radius:6px</string>
     <widget class="QWidget" name="widget_3" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>40</x>
        <y>420</y>
-       <width>321</width>
-       <height>191</height>
+       <width>341</width>
+       <height>201</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -312,7 +341,7 @@ border-radius:6px</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -320,8 +349,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;color: rgb(85, 170, 255);</string>
       </property>
       <property name="text">
        <string>原表3</string>
@@ -344,6 +373,9 @@ border-radius:6px</string>
         <family>黑体</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>选择文件</string>
@@ -368,6 +400,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(185, 185, 185);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -382,9 +417,9 @@ border-radius:6px</string>
     <widget class="QWidget" name="widget_4" native="true">
      <property name="geometry">
       <rect>
-       <x>440</x>
+       <x>420</x>
        <y>40</y>
-       <width>321</width>
+       <width>341</width>
        <height>191</height>
       </rect>
      </property>
@@ -403,7 +438,7 @@ border-radius:6px</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -412,8 +447,9 @@ border-radius:6px</string>
       <property name="styleSheet">
        <string notr="true">border:3px solid ;
 border-color: rgb(169, 209, 142);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;
+color: rgb(169, 209, 142);</string>
       </property>
       <property name="text">
        <string>基表1</string>
@@ -436,6 +472,9 @@ border-radius:6px</string>
         <family>黑体</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>选择文件</string>
@@ -460,6 +499,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(185, 185, 185);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -474,9 +516,9 @@ border-radius:6px</string>
     <widget class="QWidget" name="widget_5" native="true">
      <property name="geometry">
       <rect>
-       <x>440</x>
+       <x>420</x>
        <y>230</y>
-       <width>321</width>
+       <width>341</width>
        <height>191</height>
       </rect>
      </property>
@@ -495,7 +537,7 @@ border-radius:6px</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -503,8 +545,9 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(169, 209, 142);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;
+color: rgb(169, 209, 142);</string>
       </property>
       <property name="text">
        <string>基表2</string>
@@ -527,6 +570,9 @@ border-radius:6px</string>
         <family>黑体</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>选择文件</string>
@@ -551,6 +597,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(185, 185, 185);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -562,89 +611,14 @@ border-radius:6px</string>
       </property>
      </widget>
     </widget>
-    <widget class="QLabel" name="label_16">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>560</y>
-       <width>151</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>黑体</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:1px solid;
-border-radius:3px;
-background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::PlainText</enum>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <property name="margin">
-      <number>0</number>
-     </property>
-     <property name="indent">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_6">
-     <property name="geometry">
-      <rect>
-       <x>565</x>
-       <y>580</y>
-       <width>31</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-image: url(:/images/R-C.jpg);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="apprcc.qrc">
-       <normaloff>:/images/R-C.jpg</normaloff>:/images/R-C.jpg</iconset>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_17">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>590</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>黑体</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>填表日期</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_8">
      <property name="enabled">
       <bool>false</bool>
      </property>
      <property name="geometry">
       <rect>
-       <x>840</x>
-       <y>580</y>
+       <x>890</x>
+       <y>590</y>
        <width>120</width>
        <height>40</height>
       </rect>
@@ -659,15 +633,173 @@ background-color: rgb(255, 255, 255);</string>
       <string>下一步</string>
      </property>
     </widget>
-    <zorder>widget</zorder>
-    <zorder>widget_2</zorder>
-    <zorder>widget_3</zorder>
-    <zorder>widget_4</zorder>
-    <zorder>widget_5</zorder>
-    <zorder>label_16</zorder>
-    <zorder>label_17</zorder>
-    <zorder>pushButton_6</zorder>
-    <zorder>pushButton_8</zorder>
+    <widget class="QWidget" name="widget_11" native="true">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>420</y>
+       <width>341</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border:3px solid rgb(140, 140, 140);
+border-radius:6px;
+color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="indent">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>80</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="text">
+       <string>填表日期</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>70</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/images/R-C.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="apprcc.qrc">
+        <normaloff>:/images/R-C.jpg</normaloff>:/images/R-C.jpg</iconset>
+      </property>
+     </widget>
+     <widget class="QCalendarWidget" name="calendarWidget">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>251</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(225, 225, 225);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="minimumDate">
+       <date>
+        <year>1980</year>
+        <month>1</month>
+        <day>1</day>
+       </date>
+      </property>
+      <property name="maximumDate">
+       <date>
+        <year>2099</year>
+        <month>12</month>
+        <day>31</day>
+       </date>
+      </property>
+      <property name="gridVisible">
+       <bool>true</bool>
+      </property>
+      <property name="horizontalHeaderFormat">
+       <enum>QCalendarWidget::ShortDayNames</enum>
+      </property>
+      <property name="navigationBarVisible">
+       <bool>true</bool>
+      </property>
+      <property name="dateEditEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_44">
+     <property name="geometry">
+      <rect>
+       <x>800</x>
+       <y>170</y>
+       <width>301</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 25 12pt &quot;微软雅黑 Light&quot;;
+color: rgb(165, 165, 165);
+color: rgb(150, 150, 150);</string>
+     </property>
+     <property name="text">
+      <string>文件说明：
+
+    1、原表为项目原始信息储存文件，主要包括各单位的建筑物信息、建筑物用能信息、建筑物设备信息等。
+
+    2、基表为空白模板文件，文件格式与系统要求的格式相同。
+</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>3</number>
+     </property>
+     <property name="indent">
+      <number>2</number>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
@@ -678,7 +810,7 @@ background-color: rgb(255, 255, 255);</string>
       <rect>
        <x>40</x>
        <y>10</y>
-       <width>1001</width>
+       <width>1101</width>
        <height>211</height>
       </rect>
      </property>
@@ -695,7 +827,7 @@ background-color: rgb(255, 255, 255);</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>10</y>
+        <y>80</y>
         <width>130</width>
         <height>41</height>
        </rect>
@@ -703,11 +835,38 @@ background-color: rgb(255, 255, 255);</string>
       <property name="palette">
        <palette>
         <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="Button">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
             <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
             <blue>255</blue>
            </color>
           </brush>
@@ -726,17 +885,53 @@ background-color: rgb(255, 255, 255);</string>
            <color alpha="255">
             <red>255</red>
             <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="PlaceholderText">
+          <brush brushstyle="NoBrush">
+           <color alpha="128">
+            <red>85</red>
+            <green>170</green>
             <blue>255</blue>
            </color>
           </brush>
          </colorrole>
         </active>
         <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="Button">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
             <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
             <blue>255</blue>
            </color>
           </brush>
@@ -755,17 +950,53 @@ background-color: rgb(255, 255, 255);</string>
            <color alpha="255">
             <red>255</red>
             <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="PlaceholderText">
+          <brush brushstyle="NoBrush">
+           <color alpha="128">
+            <red>85</red>
+            <green>170</green>
             <blue>255</blue>
            </color>
           </brush>
          </colorrole>
         </inactive>
         <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
          <colorrole role="Button">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
             <red>255</red>
             <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>85</red>
+            <green>170</green>
             <blue>255</blue>
            </color>
           </brush>
@@ -784,6 +1015,15 @@ background-color: rgb(255, 255, 255);</string>
            <color alpha="255">
             <red>255</red>
             <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="PlaceholderText">
+          <brush brushstyle="NoBrush">
+           <color alpha="128">
+            <red>85</red>
+            <green>170</green>
             <blue>255</blue>
            </color>
           </brush>
@@ -794,7 +1034,7 @@ background-color: rgb(255, 255, 255);</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -802,8 +1042,8 @@ background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;color: rgb(85, 170, 255);</string>
       </property>
       <property name="text">
        <string>原表1</string>
@@ -817,7 +1057,7 @@ border-radius:6px</string>
        <rect>
         <x>181</x>
         <y>36</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -831,9 +1071,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_18">
       <property name="geometry">
        <rect>
-        <x>385</x>
+        <x>410</x>
         <y>36</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -847,9 +1087,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_19">
       <property name="geometry">
        <rect>
-        <x>589</x>
+        <x>640</x>
         <y>36</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -863,9 +1103,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_20">
       <property name="geometry">
        <rect>
-        <x>792</x>
+        <x>870</x>
         <y>36</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -881,7 +1121,7 @@ border-radius:6px</string>
        <rect>
         <x>181</x>
         <y>88</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -895,9 +1135,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_22">
       <property name="geometry">
        <rect>
-        <x>385</x>
+        <x>410</x>
         <y>88</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -911,9 +1151,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_23">
       <property name="geometry">
        <rect>
-        <x>589</x>
+        <x>640</x>
         <y>88</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -927,9 +1167,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_24">
       <property name="geometry">
        <rect>
-        <x>792</x>
+        <x>870</x>
         <y>88</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -945,7 +1185,7 @@ border-radius:6px</string>
        <rect>
         <x>181</x>
         <y>140</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -965,9 +1205,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_26">
       <property name="geometry">
        <rect>
-        <x>385</x>
+        <x>410</x>
         <y>140</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -981,9 +1221,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_27">
       <property name="geometry">
        <rect>
-        <x>589</x>
+        <x>640</x>
         <y>140</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -997,9 +1237,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_28">
       <property name="geometry">
        <rect>
-        <x>792</x>
+        <x>870</x>
         <y>140</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1016,7 +1256,7 @@ border-radius:6px</string>
       <rect>
        <x>40</x>
        <y>240</y>
-       <width>1001</width>
+       <width>1101</width>
        <height>211</height>
       </rect>
      </property>
@@ -1027,7 +1267,7 @@ border-radius:6px</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>10</y>
+        <y>90</y>
         <width>130</width>
         <height>41</height>
        </rect>
@@ -1035,7 +1275,7 @@ border-radius:6px</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -1043,8 +1283,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;color: rgb(85, 170, 255);</string>
       </property>
       <property name="text">
        <string>原表2</string>
@@ -1058,7 +1298,7 @@ border-radius:6px</string>
        <rect>
         <x>181</x>
         <y>47</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1072,9 +1312,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_30">
       <property name="geometry">
        <rect>
-        <x>385</x>
+        <x>410</x>
         <y>47</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1088,9 +1328,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_31">
       <property name="geometry">
        <rect>
-        <x>589</x>
+        <x>640</x>
         <y>47</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1104,9 +1344,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_32">
       <property name="geometry">
        <rect>
-        <x>792</x>
+        <x>870</x>
         <y>47</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1122,7 +1362,7 @@ border-radius:6px</string>
        <rect>
         <x>181</x>
         <y>99</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1136,9 +1376,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_34">
       <property name="geometry">
        <rect>
-        <x>385</x>
+        <x>410</x>
         <y>99</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1152,9 +1392,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_35">
       <property name="geometry">
        <rect>
-        <x>589</x>
+        <x>640</x>
         <y>99</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1168,9 +1408,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_36">
       <property name="geometry">
        <rect>
-        <x>792</x>
+        <x>870</x>
         <y>99</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1186,7 +1426,7 @@ border-radius:6px</string>
        <rect>
         <x>181</x>
         <y>151</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1200,9 +1440,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_38">
       <property name="geometry">
        <rect>
-        <x>385</x>
+        <x>410</x>
         <y>151</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1216,9 +1456,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_39">
       <property name="geometry">
        <rect>
-        <x>589</x>
+        <x>640</x>
         <y>151</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1232,9 +1472,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_40">
       <property name="geometry">
        <rect>
-        <x>792</x>
+        <x>870</x>
         <y>151</y>
-        <width>180</width>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1251,7 +1491,7 @@ border-radius:6px</string>
       <rect>
        <x>40</x>
        <y>470</y>
-       <width>1001</width>
+       <width>1101</width>
        <height>141</height>
       </rect>
      </property>
@@ -1262,7 +1502,7 @@ border-radius:6px</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>10</y>
+        <y>40</y>
         <width>130</width>
         <height>41</height>
        </rect>
@@ -1270,7 +1510,7 @@ border-radius:6px</string>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -1278,8 +1518,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
-border-radius:6px</string>
+font: 14pt &quot;黑体&quot;;
+border-radius:6px;color: rgb(85, 170, 255);</string>
       </property>
       <property name="text">
        <string>原表3</string>
@@ -1292,8 +1532,8 @@ border-radius:6px</string>
       <property name="geometry">
        <rect>
         <x>181</x>
-        <y>20</y>
-        <width>180</width>
+        <y>50</y>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1307,9 +1547,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_42">
       <property name="geometry">
        <rect>
-        <x>385</x>
-        <y>20</y>
-        <width>180</width>
+        <x>410</x>
+        <y>50</y>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1323,9 +1563,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_43">
       <property name="geometry">
        <rect>
-        <x>589</x>
-        <y>20</y>
-        <width>180</width>
+        <x>640</x>
+        <y>50</y>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1339,9 +1579,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_44">
       <property name="geometry">
        <rect>
-        <x>792</x>
-        <y>20</y>
-        <width>180</width>
+        <x>870</x>
+        <y>50</y>
+        <width>200</width>
         <height>35</height>
        </rect>
       </property>
@@ -1359,9 +1599,9 @@ border-radius:6px</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>620</x>
        <y>621</y>
-       <width>120</width>
+       <width>161</width>
        <height>40</height>
       </rect>
      </property>
@@ -1378,7 +1618,7 @@ border-radius:6px</string>
     <widget class="QPushButton" name="pushButton_10">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>470</x>
        <y>621</y>
        <width>120</width>
        <height>40</height>
@@ -1395,9 +1635,12 @@ border-radius:6px</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_11">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>790</x>
+       <x>810</x>
        <y>621</y>
        <width>120</width>
        <height>40</height>
@@ -1421,9 +1664,9 @@ border-radius:6px</string>
     <widget class="QWidget" name="widget_9" native="true">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>40</x>
        <y>40</y>
-       <width>1171</width>
+       <width>1081</width>
        <height>251</height>
       </rect>
      </property>
@@ -1433,16 +1676,16 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_23">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>30</y>
-        <width>100</width>
-        <height>41</height>
+        <x>50</x>
+        <y>20</y>
+        <width>80</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -1450,7 +1693,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
+font: 14pt &quot;黑体&quot;;
+color: rgb(126, 197, 234);
 border-radius:6px</string>
       </property>
       <property name="text">
@@ -1463,10 +1707,10 @@ border-radius:6px</string>
      <widget class="QComboBox" name="comboBox">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>100</y>
+        <x>20</x>
+        <y>90</y>
         <width>150</width>
-        <height>30</height>
+        <height>35</height>
        </rect>
       </property>
       <property name="font">
@@ -1479,15 +1723,22 @@ border-radius:6px</string>
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+       <string notr="true">selection-background-color: rgb(85, 170, 255);
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>70</x>
         <y>140</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1498,18 +1749,21 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
       </property>
       <property name="inputMask">
        <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>150</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -1517,7 +1771,12 @@ border-radius:6px</string>
        <font>
         <family>黑体</family>
         <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>上限：</string>
@@ -1526,9 +1785,9 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_24">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>190</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -1538,6 +1797,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -1545,9 +1807,9 @@ border-radius:6px</string>
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>70</x>
         <y>170</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -1561,9 +1823,9 @@ border-radius:6px</string>
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>70</x>
         <y>210</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -1577,9 +1839,9 @@ border-radius:6px</string>
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>70</x>
         <y>180</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1590,16 +1852,19 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBox_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>100</y>
+        <x>198</x>
+        <y>90</y>
         <width>150</width>
-        <height>30</height>
+        <height>35</height>
        </rect>
       </property>
       <property name="font">
@@ -1609,7 +1874,11 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+       <string notr="true">selection-background-color: rgb(85, 170, 255);
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_3">
@@ -1617,7 +1886,7 @@ border-radius:6px</string>
        <rect>
         <x>250</x>
         <y>140</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1628,7 +1897,10 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_4">
@@ -1636,7 +1908,7 @@ border-radius:6px</string>
        <rect>
         <x>250</x>
         <y>180</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1647,7 +1919,10 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QFrame" name="frame_3">
@@ -1655,7 +1930,7 @@ border-radius:6px</string>
        <rect>
         <x>250</x>
         <y>210</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -1671,7 +1946,7 @@ border-radius:6px</string>
        <rect>
         <x>210</x>
         <y>190</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -1680,6 +1955,9 @@ border-radius:6px</string>
         <family>黑体</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>下限：</string>
@@ -1690,7 +1968,7 @@ border-radius:6px</string>
        <rect>
         <x>250</x>
         <y>170</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -1706,7 +1984,7 @@ border-radius:6px</string>
        <rect>
         <x>210</x>
         <y>150</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -1716,6 +1994,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -1723,16 +2004,16 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_26">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>30</y>
-        <width>100</width>
-        <height>41</height>
+        <x>230</x>
+        <y>20</y>
+        <width>80</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -1740,7 +2021,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
+font: 14pt &quot;黑体&quot;;
+color: rgb(126, 197, 234);
 border-radius:6px</string>
       </property>
       <property name="text">
@@ -1753,10 +2035,10 @@ border-radius:6px</string>
      <widget class="QComboBox" name="comboBox_3">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>100</y>
+        <x>375</x>
+        <y>90</y>
         <width>150</width>
-        <height>30</height>
+        <height>35</height>
        </rect>
       </property>
       <property name="font">
@@ -1766,7 +2048,11 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+       <string notr="true">selection-background-color: rgb(85, 170, 255);
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_5">
@@ -1774,7 +2060,7 @@ border-radius:6px</string>
        <rect>
         <x>430</x>
         <y>140</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1785,7 +2071,10 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_6">
@@ -1793,7 +2082,7 @@ border-radius:6px</string>
        <rect>
         <x>430</x>
         <y>180</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1804,7 +2093,10 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QFrame" name="frame_5">
@@ -1812,7 +2104,7 @@ border-radius:6px</string>
        <rect>
         <x>430</x>
         <y>210</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -1828,7 +2120,7 @@ border-radius:6px</string>
        <rect>
         <x>390</x>
         <y>190</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -1837,6 +2129,9 @@ border-radius:6px</string>
         <family>黑体</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
       </property>
       <property name="text">
        <string>下限：</string>
@@ -1847,7 +2142,7 @@ border-radius:6px</string>
        <rect>
         <x>430</x>
         <y>170</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -1863,7 +2158,7 @@ border-radius:6px</string>
        <rect>
         <x>390</x>
         <y>150</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -1873,6 +2168,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -1880,16 +2178,16 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_29">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>30</y>
-        <width>100</width>
-        <height>41</height>
+        <x>410</x>
+        <y>20</y>
+        <width>80</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -1897,7 +2195,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
+font: 14pt &quot;黑体&quot;;
+color: rgb(126, 197, 234);
 border-radius:6px</string>
       </property>
       <property name="text">
@@ -1910,10 +2209,10 @@ border-radius:6px</string>
      <widget class="QComboBox" name="comboBox_4">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>100</y>
+        <x>553</x>
+        <y>90</y>
         <width>150</width>
-        <height>30</height>
+        <height>35</height>
        </rect>
       </property>
       <property name="font">
@@ -1923,15 +2222,19 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+       <string notr="true">selection-background-color: rgb(85, 170, 255);
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_7">
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>610</x>
         <y>140</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1942,15 +2245,18 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_8">
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>610</x>
         <y>180</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -1961,15 +2267,18 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QFrame" name="frame_7">
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>610</x>
         <y>210</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -1983,9 +2292,9 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_30">
       <property name="geometry">
        <rect>
-        <x>580</x>
+        <x>570</x>
         <y>190</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -1995,6 +2304,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -2002,9 +2314,9 @@ border-radius:6px</string>
      <widget class="QFrame" name="frame_8">
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>610</x>
         <y>170</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -2018,9 +2330,9 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_31">
       <property name="geometry">
        <rect>
-        <x>580</x>
+        <x>570</x>
         <y>150</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -2030,6 +2342,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -2037,16 +2352,16 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_32">
       <property name="geometry">
        <rect>
-        <x>620</x>
-        <y>30</y>
-        <width>100</width>
-        <height>41</height>
+        <x>580</x>
+        <y>20</y>
+        <width>80</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -2054,7 +2369,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
+font: 14pt &quot;黑体&quot;;
+color: rgb(126, 197, 234);
 border-radius:6px</string>
       </property>
       <property name="text">
@@ -2067,10 +2383,10 @@ border-radius:6px</string>
      <widget class="QComboBox" name="comboBox_5">
       <property name="geometry">
        <rect>
-        <x>780</x>
-        <y>100</y>
+        <x>731</x>
+        <y>90</y>
         <width>150</width>
-        <height>30</height>
+        <height>35</height>
        </rect>
       </property>
       <property name="font">
@@ -2080,15 +2396,19 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+       <string notr="true">selection-background-color: rgb(85, 170, 255);
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_9">
       <property name="geometry">
        <rect>
-        <x>800</x>
+        <x>790</x>
         <y>140</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -2099,15 +2419,18 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_10">
       <property name="geometry">
        <rect>
-        <x>800</x>
+        <x>790</x>
         <y>180</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -2118,15 +2441,18 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QFrame" name="frame_9">
       <property name="geometry">
        <rect>
-        <x>800</x>
+        <x>790</x>
         <y>210</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -2140,9 +2466,9 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_33">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>750</x>
         <y>190</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -2152,6 +2478,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -2159,9 +2488,9 @@ border-radius:6px</string>
      <widget class="QFrame" name="frame_10">
       <property name="geometry">
        <rect>
-        <x>800</x>
+        <x>790</x>
         <y>170</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -2175,9 +2504,9 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_34">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>750</x>
         <y>150</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -2187,6 +2516,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -2194,16 +2526,16 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_35">
       <property name="geometry">
        <rect>
-        <x>800</x>
-        <y>30</y>
-        <width>100</width>
-        <height>41</height>
+        <x>760</x>
+        <y>20</y>
+        <width>80</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -2211,7 +2543,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
+font: 14pt &quot;黑体&quot;;
+color: rgb(126, 197, 234);
 border-radius:6px</string>
       </property>
       <property name="text">
@@ -2224,10 +2557,10 @@ border-radius:6px</string>
      <widget class="QComboBox" name="comboBox_6">
       <property name="geometry">
        <rect>
-        <x>970</x>
-        <y>100</y>
+        <x>908</x>
+        <y>90</y>
         <width>150</width>
-        <height>30</height>
+        <height>35</height>
        </rect>
       </property>
       <property name="font">
@@ -2237,15 +2570,19 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">selection-background-color: rgb(85, 170, 255);</string>
+       <string notr="true">selection-background-color: rgb(85, 170, 255);
+font: 12pt &quot;黑体&quot;;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_11">
       <property name="geometry">
        <rect>
-        <x>990</x>
+        <x>970</x>
         <y>140</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -2256,15 +2593,18 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_12">
       <property name="geometry">
        <rect>
-        <x>990</x>
+        <x>970</x>
         <y>180</y>
-        <width>111</width>
+        <width>80</width>
         <height>31</height>
        </rect>
       </property>
@@ -2275,15 +2615,18 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background:transparent;border-width:0;border-style:outset</string>
+       <string notr="true">background:transparent;border-width:0;border-style:outset;color: rgb(185, 185, 185);</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QFrame" name="frame_11">
       <property name="geometry">
        <rect>
-        <x>990</x>
+        <x>970</x>
         <y>210</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -2297,9 +2640,9 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_36">
       <property name="geometry">
        <rect>
-        <x>950</x>
+        <x>930</x>
         <y>190</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -2309,6 +2652,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>下限：</string>
       </property>
@@ -2316,9 +2662,9 @@ border-radius:6px</string>
      <widget class="QFrame" name="frame_12">
       <property name="geometry">
        <rect>
-        <x>990</x>
+        <x>970</x>
         <y>170</y>
-        <width>120</width>
+        <width>80</width>
         <height>2</height>
        </rect>
       </property>
@@ -2332,9 +2678,9 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_37">
       <property name="geometry">
        <rect>
-        <x>950</x>
+        <x>930</x>
         <y>150</y>
-        <width>31</width>
+        <width>41</width>
         <height>16</height>
        </rect>
       </property>
@@ -2344,6 +2690,9 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(165, 165, 165);</string>
+      </property>
       <property name="text">
        <string>上限：</string>
       </property>
@@ -2351,16 +2700,16 @@ border-radius:6px</string>
      <widget class="QLabel" name="label_38">
       <property name="geometry">
        <rect>
-        <x>990</x>
-        <y>30</y>
-        <width>100</width>
-        <height>41</height>
+        <x>940</x>
+        <y>20</y>
+        <width>80</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>12</pointsize>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -2368,7 +2717,8 @@ border-radius:6px</string>
       </property>
       <property name="styleSheet">
        <string notr="true">border:3px solid rgb(85, 170, 255);
-font: 12pt &quot;黑体&quot;;
+font: 14pt &quot;黑体&quot;;
+color: rgb(126, 197, 234);
 border-radius:6px</string>
       </property>
       <property name="text">
@@ -2380,10 +2730,13 @@ border-radius:6px</string>
      </widget>
     </widget>
     <widget class="QPushButton" name="pushButton_12">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>1030</x>
-       <y>330</y>
+       <x>1000</x>
+       <y>310</y>
        <width>100</width>
        <height>40</height>
       </rect>
@@ -2399,11 +2752,14 @@ border-radius:6px</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_13">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>730</x>
        <y>560</y>
-       <width>100</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
@@ -2414,32 +2770,13 @@ border-radius:6px</string>
       </font>
      </property>
      <property name="text">
-      <string>保存</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_14">
-     <property name="geometry">
-      <rect>
-       <x>870</x>
-       <y>560</y>
-       <width>100</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>黑体</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>完成</string>
+      <string>保存至文件</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_15">
      <property name="geometry">
       <rect>
-       <x>1010</x>
+       <x>1030</x>
        <y>560</y>
        <width>111</width>
        <height>40</height>
@@ -2455,13 +2792,219 @@ border-radius:6px</string>
       <string>保存至数据库</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_15">
+    <widget class="QWidget" name="widget_12" native="true">
      <property name="geometry">
       <rect>
-       <x>120</x>
-       <y>480</y>
-       <width>131</width>
-       <height>16</height>
+       <x>40</x>
+       <y>400</y>
+       <width>341</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>筛选前项目总数：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>筛选前项目总数：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>160</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>剩余项目占比：</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_13">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>50</y>
+        <width>120</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::HLine</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_14">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>110</y>
+        <width>120</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::HLine</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_15">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>170</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::HLine</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>160</y>
+        <width>16</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>30</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>90</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_41">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>150</y>
+        <width>111</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton_17">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>880</x>
+       <y>560</y>
+       <width>100</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="font">
@@ -2471,127 +3014,15 @@ border-radius:6px</string>
       </font>
      </property>
      <property name="text">
-      <string>筛选前项目总数：</string>
+      <string>完成</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_20">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>540</y>
-       <width>131</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>黑体</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>筛选前项目总数：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_21">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>600</y>
-       <width>131</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>黑体</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>剩余项目占比：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_22">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>480</y>
-       <width>54</width>
-       <height>12</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QFrame" name="frame_13">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>490</y>
-       <width>120</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::HLine</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QFrame" name="frame_14">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>550</y>
-       <width>120</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::HLine</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QFrame" name="frame_15">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>610</y>
-       <width>120</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::HLine</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_39">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>600</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>黑体</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>%</string>
-     </property>
-    </widget>
+    <zorder>widget_12</zorder>
+    <zorder>widget_9</zorder>
+    <zorder>pushButton_12</zorder>
+    <zorder>pushButton_13</zorder>
+    <zorder>pushButton_15</zorder>
+    <zorder>pushButton_17</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -2600,10 +3031,10 @@ border-radius:6px</string>
     <widget class="QWidget" name="widget_10" native="true">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>40</x>
        <y>20</y>
-       <width>591</width>
-       <height>581</height>
+       <width>471</width>
+       <height>481</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -2613,9 +3044,9 @@ border-radius:6px</string>
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>60</y>
-        <width>371</width>
-        <height>41</height>
+        <y>54</y>
+        <width>360</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
@@ -2635,9 +3066,9 @@ border-radius:6px</string>
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>160</y>
-        <width>371</width>
-        <height>41</height>
+        <y>136</y>
+        <width>360</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
@@ -2657,9 +3088,9 @@ border-radius:6px</string>
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>250</y>
-        <width>371</width>
-        <height>41</height>
+        <y>290</y>
+        <width>360</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
@@ -2679,9 +3110,9 @@ border-radius:6px</string>
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>340</y>
-        <width>371</width>
-        <height>41</height>
+        <y>372</y>
+        <width>360</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
@@ -2697,13 +3128,13 @@ border-radius:6px</string>
        <string>密码</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QLineEdit" name="lineEdit_45">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>440</y>
-        <width>121</width>
-        <height>31</height>
+        <x>50</x>
+        <y>210</y>
+        <width>360</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
@@ -2712,13 +3143,207 @@ border-radius:6px</string>
         <pointsize>12</pointsize>
        </font>
       </property>
-      <property name="text">
-       <string>测试连接</string>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>数据库名称</string>
       </property>
      </widget>
     </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>530</y>
+       <width>121</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>测试连接</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_16">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>530</y>
+       <width>121</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>黑体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>写入数据库</string>
+     </property>
+    </widget>
    </widget>
   </widget>
+  <widget class="QLabel" name="label_45">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>10</y>
+     <width>281</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>楷体_GB2312</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 170, 255);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>江苏省建筑科学研究院有限公司</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget_14" native="true">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>0</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/images/logo.png);
+background-color: rgb(0, 170, 255);</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget_15" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1300</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(218, 227, 243);</string>
+   </property>
+   <widget class="QWidget" name="widget_13" native="true">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>130</y>
+      <width>321</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/images/logo.png);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_42">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>390</y>
+      <width>381</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(47, 85, 151);</string>
+    </property>
+    <property name="text">
+     <string>建筑耗能数据统计处理软件 V1.0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_43">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>620</y>
+      <width>291</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>14</pointsize>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(156, 156, 156);</string>
+    </property>
+    <property name="text">
+     <string>江苏省建筑科学研究院有限公司</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_14">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>510</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;黑体&quot;;</string>
+    </property>
+    <property name="text">
+     <string>开始使用</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_46">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1280</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 170, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>label_45</zorder>
+  <zorder>widget_14</zorder>
+  <zorder>tabWidget</zorder>
+  <zorder>widget_15</zorder>
  </widget>
  <resources>
   <include location="apprcc.qrc"/>

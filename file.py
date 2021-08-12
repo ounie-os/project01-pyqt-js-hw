@@ -2,14 +2,15 @@ import json
 import os.path
 import time
 
-from PyQt5 import QtCore
-from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QTabWidget, QMessageBox
+from PyQt5 import QtCore, QtWidgets, QtGui
+from PyQt5.QtCore import pyqtSlot, QDate
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 
-from skeleton import Ui_skeleton
-
+import ExcelTEST004_save_Func
 from ExcelTEST001 import func_filling_table
 from ExcelTEST002_judge import judge
+from skeleton import Ui_skeleton
+import ExcelTEST003_DBWrite002
 
 
 class FileOperation(QMainWindow, Ui_skeleton):
@@ -18,10 +19,16 @@ class FileOperation(QMainWindow, Ui_skeleton):
         # 初始化配置文件
         self.config_obj = MyConfig('./config.json')
         self.permit_next = set()
+        self.permit_db = set()
 
     def set_up_ui(self):
         self.setupUi(self)
-        
+        self.tabWidget.setHidden(True)
+        self.calendarWidget.setHidden(True)
+        self.label.setHidden(True)
+        self.label_45.setHidden(True)
+        self.widget_14.setHidden(True)
+
         # 实现去掉最小化窗口的按钮
         self.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
 
@@ -29,6 +36,8 @@ class FileOperation(QMainWindow, Ui_skeleton):
         self.set_up_signal_slot()
         self.init_placeholder_text()
         self.init_data_screen_text()
+
+        # self.tabWidget.currentChanged[int].connect(self.on_tabWidget_currentChanged_slot)
 
     def show_label_date_now(self):
         # 显示当前日期
@@ -39,16 +48,6 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
     def set_up_signal_slot(self):
         pass
-        # 上传原表1按钮
-        # self.pushButton.clicked.connect(self.upload_origin_table_1_file)
-
-        # self.pushButton_2.clicked.connect(self.upload_origin_table_2_file)
-        #
-        # self.pushButton_3.clicked.connect(self.upload_origin_table_3_file)
-        #
-        # self.pushButton_4.clicked.connect(self.upload_new_table_1_file)
-        #
-        # self.pushButton_4.clicked.connect(self.upload_new_table_1_file)
 
     def init_data_screen_text(self):
         judge_combox_list = [
@@ -211,6 +210,18 @@ class FileOperation(QMainWindow, Ui_skeleton):
         self.permit_next_judge()
 
     @pyqtSlot()
+    def on_pushButton_6_clicked(self):
+        self.calendarWidget.setHidden(False)
+        self.calendarWidget.clicked[QDate].connect(self.show_date)
+
+    def show_date(self, date):
+        date_str_today = date.toString("yyyy-MM-dd")
+        self.label_16.setText(date_str_today)
+        # 改变config.json里面的时间。暂时还未写入实际文件，待生成基表之前写入
+        self.config_obj.modify_raw_table_items('table_data', v=date_str_today)
+        self.calendarWidget.setHidden(True)
+
+    @pyqtSlot()
     def on_pushButton_8_clicked(self):
         """
         表格上传完毕后，点击下一步
@@ -238,8 +249,24 @@ class FileOperation(QMainWindow, Ui_skeleton):
             for x in list(params_dict):
                 target_dict[x[0]] = x[1].text() if len(x[1].text()) else target_dict[x[0]]
 
-        # 原表1
+        # 用户选择文件路径并保存到config.json文件中
+        save_dir = QFileDialog.getExistingDirectory(self, '请选择文件保存路径', '.')
+        if len(save_dir) == 0:
+            q = QMessageBox()
+            q.information(self, "提示", "请选择基表保存路径")
+            return
+        save_filename01_name = self.config_obj.extract_raw_table_items('save_filename01_name')
+        save_filename02_name = self.config_obj.extract_raw_table_items('save_filename02_name')
+        save_filename011_name = self.config_obj.extract_raw_table_items('save_filename011_name')
+        save_filename022_name = self.config_obj.extract_raw_table_items('save_filename022_name')
+        self.config_obj.modify_raw_table_items('save_filename01', v=save_dir + '/' + save_filename01_name)
+        self.config_obj.modify_raw_table_items('save_filename02', v=save_dir + '/' + save_filename02_name)
+        self.config_obj.modify_raw_table_items('judge_filename01', v=save_dir + '/' + save_filename01_name)
+        self.config_obj.modify_raw_table_items('judge_filename02', v=save_dir + '/' + save_filename02_name)
+        self.config_obj.modify_raw_table_items('save_filename011', v=save_dir + '/' + save_filename011_name)
+        self.config_obj.modify_raw_table_items('save_filename022', v=save_dir + '/' + save_filename022_name)
 
+        # 原表1
         table_nengyuan_input_list = [
             self.lineEdit_17,
             self.lineEdit_18,
@@ -323,8 +350,38 @@ class FileOperation(QMainWindow, Ui_skeleton):
         q = QMessageBox()
         if ret == 0:
             q.about(self, "提示", "成功")
+            # 保存完毕，可以下一步
+            self.pushButton_11.setEnabled(True)
+            # 可以进行筛选
+            self.pushButton_12.setEnabled(True)
+            # 可以将筛选结果保存到文件
+            self.pushButton_13.setEnabled(True)
+            # 完成按钮可以点击
+            self.pushButton_17.setEnabled(True)
         else:
             q.about(self, "提示", "失败")
+
+    @pyqtSlot()
+    def on_pushButton_13_clicked(self):
+        # 保存筛选结果到文件按钮
+
+        ret = ExcelTEST004_save_Func.save()
+        q = QMessageBox()
+        if ret == 0:
+            q.about(self, "提示", "成功")
+        else:
+            q.about(self, "提示", "失败")
+
+    @pyqtSlot()
+    def on_pushButton_14_clicked(self):
+        # 显示软件使用界面
+        self.tabWidget.setHidden(False)
+        # 隐藏欢迎页
+        self.widget_15.setHidden(True)
+        # 显示抬头
+        self.label.setHidden(False)
+        self.label_45.setHidden(False)
+        self.widget_14.setHidden(False)
 
     @pyqtSlot()
     def on_pushButton_12_clicked(self):
@@ -392,12 +449,29 @@ class FileOperation(QMainWindow, Ui_skeleton):
         json.dump(self.config_obj.file_py_obj, f, ensure_ascii=False, indent=4)
         f.close()
 
-        ret = judge()
+        judge()
+
+        with open('result.json') as f:
+            result = json.load(f)
+            self.label_22.setText(str(result['raw_dataNum']))
+            self.label_40.setText(str(result['new_dataNum']))
+            self.label_41.setText(str(result['NumPer']))
+
+    @pyqtSlot()
+    def on_pushButton_15_clicked(self):
+        self.tabWidget.setCurrentIndex(3)
+
+    @pyqtSlot()
+    def on_pushButton_16_clicked(self):
+        # 保存数据库操作
+        ExcelTEST003_DBWrite002.DB_Write()
         q = QMessageBox()
-        if ret == 0:
-            q.about(self, "提示", "成功")
-        else:
-            q.about(self, "提示", "失败")
+        q.information(self, "提示", "完成")
+
+    @pyqtSlot()
+    def on_pushButton_17_clicked(self):
+        q = QMessageBox()
+        q.information(self, "提示", "完成")
 
     @pyqtSlot()
     def on_lineEdit_17_editingFinished(self):

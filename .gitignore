@@ -9,3 +9,4 @@ venv/
 *.pdf
 *.csv
 skeleton_old.ui
+result.json

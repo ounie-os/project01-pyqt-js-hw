@@ -400,8 +400,8 @@ def func_filling_table():
     save_filename01 = t['save_filename01']
     save_filename02 = t['save_filename02']
     # table_jibiao1 = table_jibiao1.drop(['面积一','面积二','所属行政区'], axis=1)   #上交的表需要把后面的删除
-    table_jibiao1.to_csv(save_filename01 + '.csv', encoding='utf_8_sig', quoting=csv.QUOTE_NONNUMERIC)
-    table_jibiao2.to_csv(save_filename02 + '.csv', encoding='utf_8_sig', quoting=csv.QUOTE_NONNUMERIC)
+    table_jibiao1.to_csv(save_filename01, encoding='utf_8_sig', quoting=csv.QUOTE_NONNUMERIC)
+    table_jibiao2.to_csv(save_filename02, encoding='utf_8_sig', quoting=csv.QUOTE_NONNUMERIC)
 
     end_time = time.time()
     print('运行时间：', end_time - start_time)

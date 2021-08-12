@@ -81,21 +81,23 @@
             "tar_para_tmp006": ""
         }
     },
-    "table_data": "2021-08-10",
-    "save_filename01": "tmpJibiao01",
-    "save_filename02": "tmpJibiao02",
-    "judge_filename01": "tmpJibiao01.csv",
-    "judge_filename02": "tmpJibiao02.csv",
+    "table_data": "2021-08-11",
+    "save_filename01_name": "tmpJibiao01.csv",
+    "save_filename02_name": "tmpJibiao02.csv",
+    "save_filename01": "D:/python/py-qt-gui/002 测试表/tmpJibiao01.csv",
+    "save_filename02": "D:/python/py-qt-gui/002 测试表/tmpJibiao02.csv",
+    "judge_filename01": "D:/python/py-qt-gui/002 测试表/tmpJibiao01.csv",
+    "judge_filename02": "D:/python/py-qt-gui/002 测试表/tmpJibiao02.csv",
     "judge_parameters_ro": {
-        "judge_para01": "总用电",
-        "judge_para02": "建筑面积(平方米)",
-        "judge_para03": "",
-        "judge_para04": "",
-        "judge_para05": "",
-        "judge_para06": ""
+        "judge_para01": "建筑面积(平方米)",
+        "judge_para02": "总能耗(千克标准煤)",
+        "judge_para03": "面积均能耗",
+        "judge_para04": "总用水",
+        "judge_para05": "总用电",
+        "judge_para06": "天然气总用量"
     },
     "judge_parameters": {
-        "judge_para01": "",
+        "judge_para01": "总用水",
         "judge_para02": "",
         "judge_para03": "",
         "judge_para04": "",
@@ -104,8 +106,8 @@
     },
     "judge_parameters_range": {
         "judge_range01": {
-            "max": "",
-            "min": ""
+            "max": "50000",
+            "min": "0"
         },
         "judge_range02": {
             "max": "",
@@ -128,8 +130,10 @@
             "min": ""
         }
     },
-    "save_filename011": "tmpJibiao011",
-    "save_filename022": "tmpJibiao022",
+    "save_filename011_name": "tmpJibiao011.csv",
+    "save_filename022_name": "tmpJibiao022.csv",
+    "save_filename011": "D:/python/py-qt-gui/002 测试表/tmpJibiao011.csv",
+    "save_filename022": "D:/python/py-qt-gui/002 测试表/tmpJibiao022.csv",
     "DB_connect": {
         "host": "localhost",
         "port": "3306",

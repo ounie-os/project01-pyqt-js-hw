@@ -1,3 +1,5 @@
+# cython: language_level=3
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 

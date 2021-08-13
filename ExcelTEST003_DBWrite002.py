@@ -26,8 +26,8 @@ def DB_Write():
 
     file01_name = t['save_filename01']
     file02_name = t['save_filename02']
-    file01 = pd.read_csv(file01_name+'.csv',encoding='utf_8')   #为筛选之前的表
-    file02 = pd.read_csv(file02_name+'.csv',encoding='utf_8')
+    file01 = pd.read_csv(file01_name, encoding='utf_8')   #为筛选之前的表
+    file02 = pd.read_csv(file02_name, encoding='utf_8')
 
     db_target = pymysql.connect(host=host01,  # 连入配置信息所在数据库
                                 database=database01,

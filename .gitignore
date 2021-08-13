@@ -10,3 +10,5 @@ venv/
 *.csv
 skeleton_old.ui
 result.json
+*.pyd
+*.c

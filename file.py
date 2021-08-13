@@ -466,9 +466,10 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
         with open('result.json') as f:
             result = json.load(f)
+            rate = round(result['NumPer'], 2)
             self.label_22.setText(str(result['raw_dataNum']))
             self.label_40.setText(str(result['new_dataNum']))
-            self.label_41.setText(str(result['NumPer']))
+            self.label_41.setText(str(rate))
 
     @pyqtSlot()
     def on_pushButton_15_clicked(self):

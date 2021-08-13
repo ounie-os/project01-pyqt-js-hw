@@ -158,6 +158,7 @@ def judge():
         result_json = json.dumps(result_json,ensure_ascii=False)
         tmp_f = open("result.json","w")
         tmp_f.write(result_json)
+        tmp_f.flush()
         tmp_f.close()
 
         # def save_Func():

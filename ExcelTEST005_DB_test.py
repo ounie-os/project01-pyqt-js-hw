@@ -45,6 +45,7 @@ def DB_Write_test():
     print(result_json)
     tmp_f = open("result02.json", "w")
     tmp_f.write(result_json)
+    tmp_f.flush()
     tmp_f.close()
 
 if __name__ == '__main__':

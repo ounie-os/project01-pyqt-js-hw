@@ -1,16 +1,20 @@
+# cython: language_level=3
+
+
 import json
 import os.path
 import time
 
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSlot, QDate
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 
+import ExcelTEST003_DBWrite002
 import ExcelTEST004_save_Func
+import ExcelTEST005_DB_test
 from ExcelTEST001 import func_filling_table
 from ExcelTEST002_judge import judge
 from skeleton import Ui_skeleton
-import ExcelTEST003_DBWrite002
 
 
 class FileOperation(QMainWindow, Ui_skeleton):
@@ -344,6 +348,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
         f = open(self.config_obj.file_path, mode='w')
         json.dump(self.config_obj.file_py_obj, f, ensure_ascii=False, indent=4)
+        f.flush()
         f.close()
 
         ret = func_filling_table()
@@ -447,6 +452,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
         f = open(self.config_obj.file_path, mode='w')
         json.dump(self.config_obj.file_py_obj, f, ensure_ascii=False, indent=4)
+        f.flush()
         f.close()
 
         judge()
@@ -472,6 +478,57 @@ class FileOperation(QMainWindow, Ui_skeleton):
     def on_pushButton_17_clicked(self):
         q = QMessageBox()
         q.information(self, "提示", "完成")
+
+    @pyqtSlot()
+    def on_pushButton_7_clicked(self):
+        self.set_db_config()
+
+        ExcelTEST005_DB_test.DB_Write_test()
+        f = open('result02.json')
+        result_obj = json.load(f)
+        result = result_obj['connection_result']
+        q = QMessageBox()
+        if result == 0:
+            q.information(self, "提示", "数据库连接成功")
+            self.pushButton_16.setEnabled(True)
+        else:
+            q.information(self, "提示", "数据库连接失败，请核对参数")
+
+    @pyqtSlot()
+    def on_lineEdit_13_editingFinished(self):
+        pass
+
+    @pyqtSlot()
+    def on_lineEdit_14_editingFinished(self):
+        pass
+
+    @pyqtSlot()
+    def on_lineEdit_15_editingFinished(self):
+        pass
+
+    @pyqtSlot()
+    def on_lineEdit_16_editingFinished(self):
+        pass
+
+    @pyqtSlot()
+    def on_lineEdit_45_editingFinished(self):
+        pass
+
+    def set_db_config(self):
+        host = self.lineEdit_13.text()
+        port = self.lineEdit_14.text()
+        database = self.lineEdit_45.text()
+        username = self.lineEdit_15.text()
+        password = self.lineEdit_16.text()
+        self.config_obj.modify_raw_table_items('DB_connect', 'host', v=host)
+        self.config_obj.modify_raw_table_items('DB_connect', 'port', v=port)
+        self.config_obj.modify_raw_table_items('DB_connect', 'database', v=database)
+        self.config_obj.modify_raw_table_items('DB_connect', 'username', v=username)
+        self.config_obj.modify_raw_table_items('DB_connect', 'password', v=password)
+        f = open(self.config_obj.file_path, mode='w')
+        json.dump(self.config_obj.file_py_obj, f, ensure_ascii=False, indent=4)
+        f.flush()
+        f.close()
 
     @pyqtSlot()
     def on_lineEdit_17_editingFinished(self):

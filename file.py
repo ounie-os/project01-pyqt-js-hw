@@ -7,7 +7,7 @@ import time
 
 from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSlot, QDate
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QLineEdit
 
 import ExcelTEST003_DBWrite002
 import ExcelTEST004_save_Func
@@ -42,6 +42,13 @@ class FileOperation(QMainWindow, Ui_skeleton):
         self.init_data_screen_text()
 
         # self.tabWidget.currentChanged[int].connect(self.on_tabWidget_currentChanged_slot)
+        self.checkBox.stateChanged[int].connect(self.checkbox_change)
+
+    def checkbox_change(self, index):
+        if self.checkBox.isChecked():
+            self.lineEdit_16.setEchoMode(QLineEdit.Normal)
+        else:
+            self.lineEdit_16.setEchoMode(QLineEdit.Password)
 
     def show_label_date_now(self):
         # 显示当前日期

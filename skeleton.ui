@@ -3124,6 +3124,9 @@ border-radius:6px</string>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
       <property name="placeholderText">
        <string>密码</string>
       </property>
@@ -3148,6 +3151,25 @@ border-radius:6px</string>
       </property>
       <property name="placeholderText">
        <string>数据库名称</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>430</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>显示密码</string>
       </property>
      </widget>
     </widget>

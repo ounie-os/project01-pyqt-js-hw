@@ -2839,7 +2839,7 @@ border-radius:6px</string>
        </font>
       </property>
       <property name="text">
-       <string>筛选前项目总数：</string>
+       <string>筛选后项目总数：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_21">

@@ -1387,7 +1387,7 @@ class Ui_skeleton(object):
         self.pushButton_13.setText(_translate("skeleton", "保存至文件"))
         self.pushButton_15.setText(_translate("skeleton", "保存至数据库"))
         self.label_15.setText(_translate("skeleton", "筛选前项目总数："))
-        self.label_20.setText(_translate("skeleton", "筛选前项目总数："))
+        self.label_20.setText(_translate("skeleton", "筛选后项目总数："))
         self.label_21.setText(_translate("skeleton", "剩余项目占比："))
         self.label_39.setText(_translate("skeleton", "%"))
         self.pushButton_17.setText(_translate("skeleton", "完成"))

@@ -9,12 +9,12 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSlot, QDate
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QLineEdit
 
-import ExcelTEST003_DBWrite002
 import ExcelTEST004_save_Func
 import ExcelTEST005_DB_test
-from ExcelTEST001 import func_filling_table
+
 from ExcelTEST002_judge import judge
 from skeleton import Ui_skeleton
+from process_thread import generateTableThread, dbWriteThread
 
 
 class FileOperation(QMainWindow, Ui_skeleton):
@@ -24,6 +24,8 @@ class FileOperation(QMainWindow, Ui_skeleton):
         self.config_obj = MyConfig('./config.json')
         self.permit_next = set()
         self.permit_db = set()
+        self.generate_table_thread = generateTableThread()
+        self.db_write_thread = dbWriteThread()
 
     def set_up_ui(self):
         self.setupUi(self)
@@ -43,6 +45,67 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
         # self.tabWidget.currentChanged[int].connect(self.on_tabWidget_currentChanged_slot)
         self.checkBox.stateChanged[int].connect(self.checkbox_change)
+
+        self.generate_table_thread.started.connect(self.started_generate_table_thread)
+        self.generate_table_thread.finished.connect(self.finished_generate_table_thread)
+
+        self.db_write_thread.started.connect(self.started_db_write_thread)
+        self.db_write_thread.finished.connect(self.finished_db_write_thread)
+
+    def started_generate_table_thread(self):
+        self.pushButton.setEnabled(False)
+        self.pushButton_2.setEnabled(False)
+        self.pushButton_3.setEnabled(False)
+        self.pushButton_4.setEnabled(False)
+        self.pushButton_5.setEnabled(False)
+        self.pushButton_6.setEnabled(False)
+        self.pushButton_9.setEnabled(False)
+        self.pushButton_9.setText("生成基表中...")
+
+    def finished_generate_table_thread(self):
+        self.pushButton.setEnabled(True)
+        self.pushButton_2.setEnabled(True)
+        self.pushButton_3.setEnabled(True)
+        self.pushButton_4.setEnabled(True)
+        self.pushButton_5.setEnabled(True)
+        self.pushButton_6.setEnabled(True)
+        self.pushButton_9.setText("生成基表并保存")
+        self.pushButton_9.setEnabled(True)
+
+        self.pushButton_11.setEnabled(True)
+        # 可以进行筛选
+        self.pushButton_12.setEnabled(True)
+        # 可以将筛选结果保存到文件
+        self.pushButton_13.setEnabled(True)
+        # 完成按钮可以点击
+        self.pushButton_17.setEnabled(True)
+
+        q = QMessageBox()
+        q.information(self, "提示", "完成")
+
+    def started_db_write_thread(self):
+        self.pushButton.setEnabled(False)
+        self.pushButton_2.setEnabled(False)
+        self.pushButton_3.setEnabled(False)
+        self.pushButton_4.setEnabled(False)
+        self.pushButton_5.setEnabled(False)
+        self.pushButton_6.setEnabled(False)
+        self.pushButton_9.setEnabled(False)
+        self.pushButton_16.setEnabled(False)
+        self.pushButton_16.setText("请稍等...")
+
+    def finished_db_write_thread(self):
+        self.pushButton.setEnabled(True)
+        self.pushButton_2.setEnabled(True)
+        self.pushButton_3.setEnabled(True)
+        self.pushButton_4.setEnabled(True)
+        self.pushButton_5.setEnabled(True)
+        self.pushButton_6.setEnabled(True)
+        self.pushButton_9.setEnabled(True)
+        self.pushButton_16.setEnabled(True)
+        self.pushButton_16.setText("写入数据库")
+        q = QMessageBox()
+        q.information(self, "提示", "完成")
 
     def checkbox_change(self, index):
         if self.checkBox.isChecked():
@@ -358,20 +421,8 @@ class FileOperation(QMainWindow, Ui_skeleton):
         f.flush()
         f.close()
 
-        ret = func_filling_table()
-        q = QMessageBox()
-        if ret == 0:
-            q.about(self, "提示", "成功")
-            # 保存完毕，可以下一步
-            self.pushButton_11.setEnabled(True)
-            # 可以进行筛选
-            self.pushButton_12.setEnabled(True)
-            # 可以将筛选结果保存到文件
-            self.pushButton_13.setEnabled(True)
-            # 完成按钮可以点击
-            self.pushButton_17.setEnabled(True)
-        else:
-            q.about(self, "提示", "失败")
+        # 开启填充基表的线程
+        self.generate_table_thread.start()
 
     @pyqtSlot()
     def on_pushButton_13_clicked(self):
@@ -478,9 +529,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
     @pyqtSlot()
     def on_pushButton_16_clicked(self):
         # 保存数据库操作
-        ExcelTEST003_DBWrite002.DB_Write()
-        q = QMessageBox()
-        q.information(self, "提示", "完成")
+        self.db_write_thread.start()
 
     @pyqtSlot()
     def on_pushButton_17_clicked(self):

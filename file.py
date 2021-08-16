@@ -3,6 +3,7 @@
 
 import json
 import os.path
+import sys
 import time
 
 from PyQt5 import QtCore
@@ -11,10 +12,9 @@ from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QLineEdit
 
 import ExcelTEST004_save_Func
 import ExcelTEST005_DB_test
-
 from ExcelTEST002_judge import judge
-from skeleton import Ui_skeleton
 from process_thread import generateTableThread, dbWriteThread
+from skeleton import Ui_skeleton
 
 
 class FileOperation(QMainWindow, Ui_skeleton):
@@ -51,6 +51,8 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
         self.db_write_thread.started.connect(self.started_db_write_thread)
         self.db_write_thread.finished.connect(self.finished_db_write_thread)
+
+        self.tabWidget.setFocusPolicy(QtCore.Qt.NoFocus)
 
     def started_generate_table_thread(self):
         self.pushButton.setEnabled(False)

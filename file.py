@@ -531,6 +531,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
     @pyqtSlot()
     def on_pushButton_16_clicked(self):
         # 保存数据库操作
+        self.pushButton_7.setFocus()
         self.db_write_thread.start()
 
     @pyqtSlot()

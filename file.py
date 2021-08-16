@@ -3,7 +3,6 @@
 
 import json
 import os.path
-import sys
 import time
 
 from PyQt5 import QtCore
@@ -53,6 +52,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
         self.db_write_thread.finished.connect(self.finished_db_write_thread)
 
         self.tabWidget.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.checkBox.setFocusPolicy(QtCore.Qt.NoFocus)
 
     def started_generate_table_thread(self):
         self.pushButton.setEnabled(False)
@@ -111,9 +111,9 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
     def checkbox_change(self, index):
         if self.checkBox.isChecked():
-            self.lineEdit_16.setEchoMode(QLineEdit.Normal)
+            self.lineEdit_45.setEchoMode(QLineEdit.Normal)
         else:
-            self.lineEdit_16.setEchoMode(QLineEdit.Password)
+            self.lineEdit_45.setEchoMode(QLineEdit.Password)
 
     def show_label_date_now(self):
         # 显示当前日期
@@ -576,9 +576,9 @@ class FileOperation(QMainWindow, Ui_skeleton):
     def set_db_config(self):
         host = self.lineEdit_13.text()
         port = self.lineEdit_14.text()
-        database = self.lineEdit_45.text()
-        username = self.lineEdit_15.text()
-        password = self.lineEdit_16.text()
+        database = self.lineEdit_15.text()
+        username = self.lineEdit_16.text()
+        password = self.lineEdit_45.text()
         self.config_obj.modify_raw_table_items('DB_connect', 'host', v=host)
         self.config_obj.modify_raw_table_items('DB_connect', 'port', v=port)
         self.config_obj.modify_raw_table_items('DB_connect', 'database', v=database)

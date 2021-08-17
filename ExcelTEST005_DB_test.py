@@ -14,6 +14,8 @@ def DB_Write_test():
     import json
     import datetime
 
+    error_reason = ""
+
     ########## Step 01 读取配置文件 ##########
     f = open('./config.json')  # 读取配置文件
     t = json.load(f)  # 将json格式的数据映射成list的形式
@@ -35,7 +37,8 @@ def DB_Write_test():
         db_target.commit()
         db_target.close()
         result = 0
-    except:
+    except Exception as e:
+        error_reason = str(e)
         result = -1
 
     result_json = {
@@ -47,6 +50,8 @@ def DB_Write_test():
     tmp_f.write(result_json)
     tmp_f.flush()
     tmp_f.close()
+
+    return error_reason
 
 if __name__ == '__main__':
     DB_Write_test()

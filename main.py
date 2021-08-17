@@ -17,6 +17,7 @@ import ExcelTEST005_DB_test
 import skeleton
 import tab_horizontal_west
 import process_thread
+import cryptography
 
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QStyleFactory

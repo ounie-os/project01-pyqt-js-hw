@@ -1,6 +1,7 @@
 altgraph==0.17
 cffi==1.14.6
 click==7.1.2
+cryptography==3.4.7
 Cython==0.29.24
 et-xmlfile==1.1.0
 future==0.18.2

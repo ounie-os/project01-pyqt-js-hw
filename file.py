@@ -28,11 +28,8 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
     def set_up_ui(self):
         self.setupUi(self)
-        self.tabWidget.setHidden(True)
         self.calendarWidget.setHidden(True)
-        self.label.setHidden(True)
-        self.label_45.setHidden(True)
-        self.widget_14.setHidden(True)
+        self.widget_16.setHidden(True)
 
         # 实现去掉最小化窗口的按钮
         self.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
@@ -53,6 +50,10 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
         self.tabWidget.setFocusPolicy(QtCore.Qt.NoFocus)
         self.checkBox.setFocusPolicy(QtCore.Qt.NoFocus)
+
+        self.tabWidget.currentChanged.connect(self.on_tabWidget_currentChanged)
+
+
 
     def started_generate_table_thread(self):
         self.pushButton.setEnabled(False)
@@ -303,15 +304,15 @@ class FileOperation(QMainWindow, Ui_skeleton):
         表格上传完毕后，点击下一步
         :return:
         """
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
 
     @pyqtSlot()
     def on_pushButton_10_clicked(self):
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
     @pyqtSlot()
     def on_pushButton_11_clicked(self):
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(3)
 
     @pyqtSlot()
     def on_pushButton_9_clicked(self):
@@ -438,17 +439,6 @@ class FileOperation(QMainWindow, Ui_skeleton):
             q.about(self, "提示", "失败")
 
     @pyqtSlot()
-    def on_pushButton_14_clicked(self):
-        # 显示软件使用界面
-        self.tabWidget.setHidden(False)
-        # 隐藏欢迎页
-        self.widget_15.setHidden(True)
-        # 显示抬头
-        self.label.setHidden(False)
-        self.label_45.setHidden(False)
-        self.widget_14.setHidden(False)
-
-    @pyqtSlot()
     def on_pushButton_12_clicked(self):
         # 筛选按钮
         # text_screen1对应第1个筛选条件的内容
@@ -526,7 +516,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
 
     @pyqtSlot()
     def on_pushButton_15_clicked(self):
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(4)
 
     @pyqtSlot()
     def on_pushButton_16_clicked(self):
@@ -543,7 +533,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
     def on_pushButton_7_clicked(self):
         self.set_db_config()
 
-        ExcelTEST005_DB_test.DB_Write_test()
+        error_reason = ExcelTEST005_DB_test.DB_Write_test()
         f = open('result02.json')
         result_obj = json.load(f)
         result = result_obj['connection_result']
@@ -552,7 +542,7 @@ class FileOperation(QMainWindow, Ui_skeleton):
             q.information(self, "提示", "数据库连接成功")
             self.pushButton_16.setEnabled(True)
         else:
-            q.information(self, "提示", "数据库连接失败，请核对参数")
+            q.information(self, "提示", error_reason)
 
     @pyqtSlot()
     def on_lineEdit_13_editingFinished(self):
@@ -814,6 +804,14 @@ class FileOperation(QMainWindow, Ui_skeleton):
         :return:
         """
         pass
+
+    @pyqtSlot()
+    def on_tabWidget_currentChanged(self):
+        index = self.tabWidget.currentIndex()
+        if index == 0:
+            self.widget_16.setHidden(True)
+        else:
+            self.widget_16.setHidden(False)
 
 
 class MyConfig:

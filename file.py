@@ -371,7 +371,8 @@ class FileOperation(QMainWindow, Ui_skeleton):
             "raw_para16",
             "raw_para22",
             "raw_para24",
-            "raw_para25"
+            "raw_para25",
+            "raw_para26"
         ]
 
         table_nengyuan_dict = self.config_obj.extract_raw_table_items("raw_parameters", "table_nengyuan")

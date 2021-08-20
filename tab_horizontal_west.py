@@ -47,7 +47,7 @@ class TabBar(QtWidgets.QTabBar):
                 painter.fillRect(the_rect, color)
                 painter.restore()
                 painter.save()
-                color.setRgb(10, 145, 217)
+                color.setRgb(0, 170, 255)
                 painter.setPen(color)
                 self.repaint_text(painter, i)
                 painter.restore()
@@ -58,7 +58,7 @@ class TabBar(QtWidgets.QTabBar):
                 painter.restore()
 
                 painter.save()
-                color.setRgb(10, 145, 217)
+                color.setRgb(0, 170, 255)
                 painter.fillRect(the_rect.adjusted(0, 1, 0, -1), color)
                 painter.restore()
 

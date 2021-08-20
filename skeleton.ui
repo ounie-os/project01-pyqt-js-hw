@@ -35,7 +35,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(10, 145, 217);</string>
+    <string notr="true">background-color: rgb(0, 170, 255);</string>
    </property>
    <widget class="QLabel" name="label_46">
     <property name="geometry">
@@ -3182,7 +3182,7 @@ border-radius:6px</string>
     <widget class="QWidget" name="widget_10" native="true">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>360</x>
        <y>20</y>
        <width>471</width>
        <height>481</height>
@@ -3333,7 +3333,7 @@ border-radius:6px</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>450</x>
        <y>530</y>
        <width>121</width>
        <height>40</height>
@@ -3355,7 +3355,7 @@ border-radius:6px</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>390</x>
+       <x>610</x>
        <y>530</y>
        <width>121</width>
        <height>40</height>
@@ -3383,10 +3383,13 @@ border-radius:6px</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 150, 209);</string>
+    <string notr="true">background-color: rgb(0, 170, 255);</string>
    </property>
   </widget>
   <widget class="QWidget" name="widget_17" native="true">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -3415,8 +3418,8 @@ border-radius:6px</string>
   <zorder>tabWidget</zorder>
   <zorder>widget_15</zorder>
   <zorder>widget_16</zorder>
-  <zorder>widget_17</zorder>
   <zorder>widget_18</zorder>
+  <zorder>widget_17</zorder>
  </widget>
  <resources>
   <include location="apprcc.qrc"/>

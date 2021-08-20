@@ -346,6 +346,7 @@ class Ui_skeleton(object):
         self.calendarWidget.setMaximumDate(QtCore.QDate(2099, 12, 31))
         self.calendarWidget.setGridVisible(True)
         self.calendarWidget.setHorizontalHeaderFormat(QtWidgets.QCalendarWidget.ShortDayNames)
+        self.calendarWidget.setVerticalHeaderFormat(QtWidgets.QCalendarWidget.NoVerticalHeader)
         self.calendarWidget.setNavigationBarVisible(True)
         self.calendarWidget.setDateEditEnabled(True)
         self.calendarWidget.setObjectName("calendarWidget")
@@ -1346,8 +1347,8 @@ class Ui_skeleton(object):
         self.tabWidget.raise_()
         self.widget_15.raise_()
         self.widget_16.raise_()
-        self.widget_18.raise_()
         self.widget_17.raise_()
+        self.widget_18.raise_()
 
         self.retranslateUi(skeleton)
         self.tabWidget.setCurrentIndex(0)

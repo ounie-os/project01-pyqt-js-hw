@@ -1,63 +1,72 @@
 # cython: language_level=3
 
 from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtCore import QRectF
+from PyQt5.QtGui import QFont
 
 
 class TabBar(QtWidgets.QTabBar):
     def tabSizeHint(self, index):
         s = QtWidgets.QTabBar.tabSizeHint(self, index)
 
-        # 调整每个tab bar的尺寸与布局
-        # s.setWidth(s.width() + 30)
-        # s.setHeight(s.height() + 50)
-
         s.transpose()
+
+        s.setWidth(123)
+        s.setHeight(40)
+
         return s
+
+    def repaint_text(self, painter, i):
+        text_option = QtGui.QTextOption()
+        text_option.setAlignment(QtCore.Qt.AlignCenter)
+        new_rect = QRectF(self.tabRect(i))
+        painter.drawText(new_rect, self.tabText(i), text_option)
 
     def paintEvent(self, event):
         painter = QtWidgets.QStylePainter(self)
-        opt = QtWidgets.QStyleOptionTab()
+        option = QtWidgets.QStyleOptionTab()
 
-        # 设置tab的字体
-        font = QtGui.QFont()
+        color = QtGui.QColor()
+
+        font = QFont()
         font.setFamily("黑体")
-        font.setPointSize(14)
-        painter.setFont(font)
+        font.setPointSize(16)
+        self.setFont(font)
 
-        # 设置tab的位置与尺寸
-        self.setGeometry(0, 180, 123, 200)
+        self.setGeometry(0, 230, 123, 200)
 
         for i in range(self.count()):
-            self.initStyleOption(opt, i)
+            self.initStyleOption(option, i)
+            the_rect = option.rect
 
-            painter.drawControl(QtWidgets.QStyle.CE_TabBarTabShape, opt)
-            painter.save()
+            # 被选中
+            if option.state & QtWidgets.QStyle.State_Selected:
+                painter.save()
+                # 白色
+                color.setRgb(255, 255, 255)
+                painter.fillRect(the_rect, color)
+                painter.restore()
+                painter.save()
+                color.setRgb(10, 145, 217)
+                painter.setPen(color)
+                self.repaint_text(painter, i)
+                painter.restore()
+            else:
+                painter.save()
+                color.setRgb(255, 255, 255)
+                painter.fillRect(the_rect, color)
+                painter.restore()
 
-            s = opt.rect.size()
-            s.transpose()
+                painter.save()
+                color.setRgb(10, 145, 217)
+                painter.fillRect(the_rect.adjusted(0, 1, 0, -1), color)
+                painter.restore()
 
-            # 调整这里，使得文字能够完整显示
-            s.setWidth(s.width() + 75)
-            opt.rect.setSize(s)
-
-            r = QtCore.QRect(QtCore.QPoint(), s)
-            r.moveCenter(opt.rect.center())
-
-            c = self.tabRect(i).center()
-
-
-            # 调整x，y坐标来调整文字在tab中的位置
-            c.setX(c.x() + 20)
-            c.setY(c.y() + 20)
-
-            painter.translate(c)
-            painter.rotate(90)
-            painter.translate(-c)
-            painter.drawControl(QtWidgets.QStyle.CE_TabBarTabLabel, opt)
-            painter.restore()
-
-    def tabTextColor(self, index):
-        QtWidgets.QTabBar.tabTextColor(self, index)
+                painter.save()
+                color.setRgb(255, 255, 255)
+                painter.setPen(color)
+                self.repaint_text(painter, i)
+                painter.restore()
 
 
 class HwTabWidget(QtWidgets.QTabWidget):

@@ -26,6 +26,7 @@ from file import FileOperation
 
 
 app = QtWidgets.QApplication(sys.argv)
+app.setStyle(QStyleFactory.create("Fusion"))
 print(QStyleFactory.keys())
 file_widget = FileOperation()
 file_widget.set_up_ui()

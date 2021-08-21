@@ -13,10 +13,10 @@ import ExcelTEST004_save_Func
 import ExcelTEST005_DB_test
 from ExcelTEST002_judge import judge
 from process_thread import generateTableThread, dbWriteThread
-from skeleton import Ui_skeleton
+from skeleton import Ui_MainWindow
 
 
-class FileOperation(QMainWindow, Ui_skeleton):
+class FileOperation(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(FileOperation, self).__init__(parent)
         # 初始化配置文件
@@ -29,17 +29,18 @@ class FileOperation(QMainWindow, Ui_skeleton):
     def set_up_ui(self):
         self.setupUi(self)
         self.calendarWidget.setHidden(True)
-        self.widget_16.setHidden(True)
+        self.label_47.setHidden(True)
+        self.label_48.setHidden(True)
+        self.widget_15.setHidden(True)
 
         # 实现去掉最小化窗口的按钮
-        self.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
+        # self.setWindowFlags(QtCore.Qt.WindowCloseButtonHint | QtCore.Qt.WindowMinimizeButtonHint)
 
         self.show_label_date_now()
         self.set_up_signal_slot()
         self.init_placeholder_text()
         self.init_data_screen_text()
 
-        # self.tabWidget.currentChanged[int].connect(self.on_tabWidget_currentChanged_slot)
         self.checkBox.stateChanged[int].connect(self.checkbox_change)
 
         self.generate_table_thread.started.connect(self.started_generate_table_thread)
@@ -52,8 +53,6 @@ class FileOperation(QMainWindow, Ui_skeleton):
         self.checkBox.setFocusPolicy(QtCore.Qt.NoFocus)
 
         self.tabWidget.currentChanged.connect(self.on_tabWidget_currentChanged)
-
-
 
     def started_generate_table_thread(self):
         self.pushButton.setEnabled(False)
@@ -810,9 +809,13 @@ class FileOperation(QMainWindow, Ui_skeleton):
     def on_tabWidget_currentChanged(self):
         index = self.tabWidget.currentIndex()
         if index == 0:
-            self.widget_16.setHidden(True)
+            self.label_47.setHidden(True)
+            self.label_48.setHidden(True)
+            self.widget_15.setHidden(True)
         else:
-            self.widget_16.setHidden(False)
+            self.label_47.setHidden(False)
+            self.label_48.setHidden(False)
+            self.widget_15.setHidden(False)
 
 
 class MyConfig:

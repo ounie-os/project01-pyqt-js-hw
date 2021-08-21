@@ -33,7 +33,7 @@ class TabBar(QtWidgets.QTabBar):
         font.setPointSize(16)
         self.setFont(font)
 
-        self.setGeometry(0, 230, 123, 200)
+        self.setGeometry(0, 325, 123, 200)
 
         for i in range(self.count()):
             self.initStyleOption(option, i)

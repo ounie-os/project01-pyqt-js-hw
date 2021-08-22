@@ -19,11 +19,13 @@ import tab_horizontal_west
 import process_thread
 import cryptography
 
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QStyleFactory
 
 from file import FileOperation
 
+os.environ['QT_ENABLE_HIGHDPI_SCALING'] = '1'
+QtWidgets.QApplication.setHighDpiScaleFactorRoundingPolicy(QtCore.Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
 
 app = QtWidgets.QApplication(sys.argv)
 app.setStyle(QStyleFactory.create("Fusion"))

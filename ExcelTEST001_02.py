@@ -10,14 +10,11 @@
 
 '''
 
-
 def func_filling_table():
     ########## 导入模块 ##########
     import json
     import time  # 导入时间模块
     import pandas as pd
-    import datetime as dt  # 导入时间处理模块
-    # import xlwt
     import csv
 
     start_time = time.time()  # 程序开始，第一次计时。
@@ -25,6 +22,7 @@ def func_filling_table():
     f = open('./config.json')  # 读取配置文件
     t = json.load(f)  # 将json格式的数据映射成list的形式
     f.close()  # 关闭文件
+    # print(t)
 
     ########## Step 02 读取表数据 ##########
     ##### 02.1 读取表路径 #####
@@ -48,7 +46,7 @@ def func_filling_table():
 
     try:
         # table_nengyuan = pd.read_excel(table1, encoding='utf_8', dtype={'固定电话': str})  # 能源资源表
-        table_nengyuan = pd.read_excel(table1, dtype={'固定电话': str})  # 能源资源表
+        table_nengyuan = pd.read_excel(table1, dtype={'固定电话': str})
         table_jianzhu = read_table(table2)  # 建筑信息表
         table_shebei = read_table(table3)  # 用能设备表
         table_jibiao1 = read_table(table4)  # 基表1
@@ -58,6 +56,10 @@ def func_filling_table():
         print('请检查配置文件中的表格路径格式与表名')
 
     table_data = t['table_data']  # 人为配置的填表日期
+    Xishu_dian = t['Xishu_dian']   #电转标煤系数，默认为0.3，可修改
+    Xishu_dian = float(Xishu_dian)
+    Xishu_tianranqi = t['Xishu_tianranqi']   #天然气转标煤系数，默认为0.2143，可修改
+    Xishu_tianranqi = float(Xishu_tianranqi)
 
     ########### Step 03 读取表参数 ##########
     ###### 03.1 读取源表参数 ######
@@ -85,6 +87,8 @@ def func_filling_table():
     raw_para22 = t['raw_parameters']['table_nengyuan']['raw_para22']  # 所属行政区
     raw_para24 = t['raw_parameters']['table_nengyuan']['raw_para24']  # 总能耗(千克标准煤)
     raw_para25 = t['raw_parameters']['table_nengyuan']['raw_para25']  # 面积均能耗(千克标准煤/平方米)
+    raw_para26 = t['raw_parameters']['table_nengyuan']['raw_para26']  # 用能人数
+
 
     ##### 03.2 读取目标表参数 #####
     tar_para01 = t['target_parameters']['table_jibiao1']['tar_para01']  # 建筑详细名称
@@ -106,6 +110,7 @@ def func_filling_table():
     tar_para17 = t['target_parameters']['table_jibiao1']['tar_para17']  # 填表时间
     tar_para18 = t['target_parameters']['table_jibiao2']['tar_para18']  # 建筑详细名称（基表2）
     tar_para23 = t['target_parameters']['table_jibiao1']['tar_para23']  # 建筑所属行政区划
+    tar_para26 = t['raw_parameters']['table_nengyuan']['raw_para26']  # 用能人数
 
     ########### Step 04 原表1字段进行处理 ##########根据不同单位类型中包含的关键字来判断该单位的单位类型
     def panduan(A, B):  # 定义函数，用于判断字段中是否包含特定字段
@@ -170,6 +175,7 @@ def func_filling_table():
     table_jibiao1['总用水'] = table_nengyuan[raw_para16]  # 参数：总用水(吨)   #用于后续筛选数据
     table_jibiao1['总用电'] = table_nengyuan[raw_para14]  # 参数：总用电(千瓦时)   #用于后续筛选数据
     table_jibiao1['天然气总用量'] = table_nengyuan[raw_para15]  # 参数：天然气总用量(立方米)   #用于后续筛选数据
+    table_jibiao1['用能人数'] = table_nengyuan[raw_para26]   #参数：用能人数
 
     table_jibiao2[tar_para14] = table_nengyuan[raw_para14]  # 参数：电力，填入基2表对应位置
     table_jibiao2[tar_para15] = table_nengyuan[raw_para15]  # 参数：天然气，填入基2表对应位置
@@ -181,6 +187,7 @@ def func_filling_table():
     table_jibiao2['总用水'] = table_nengyuan[raw_para16]  # 参数：总用水(吨)   #用于后续筛选数据
     table_jibiao2['总用电'] = table_nengyuan[raw_para14]  # 参数：总用电(千瓦时)   #用于后续筛选数据
     table_jibiao2['天然气总用量'] = table_nengyuan[raw_para15]  # 参数：天然气总用量(立方米)   #用于后续筛选数据
+    table_jibiao2['用能人数'] = table_nengyuan[raw_para26]  # 参数：用能人数
 
     ########### Step 05 原表2字段进行处理 ##########
     ##### 05.1 建筑表提取竣工年份,存入建筑表 #####
@@ -224,7 +231,7 @@ def func_filling_table():
 
     table_jianzhu02 = table_jianzhu_chuli02()  # 运行以上程序
 
-    # table_jianzhu02.to_csv('tmpJianzhu02.csv',encoding='utf_8_sig')
+    table_jianzhu02.to_csv('tmpJianzhu02.csv',encoding='utf_8_sig')
 
     ########### Step 06 原表3字段进行处理 ##########获取同一单位不同用能设备类型，并根据字段中是否包含关键字来判断供冷供热方式
     def table_shebei_chuli():  # 定义函数，对原表3进行处理
@@ -238,9 +245,9 @@ def func_filling_table():
                     shebei_name = str(shebei_name)
                     # result = False
                     # result = '中央空调' in shebei_name
-                    if '中央空调' in shebei_name:  # 判断“设备名称”中是否包含“中央空调”字段，若是，则为True
+                    if '中央空调' in shebei_name:     # 判断“设备名称”中是否包含“中央空调”字段，若是，则为True
                         tmp_table['供冷供热方式'] = 1
-                    elif '水泵' in shebei_name:
+                    elif '水泵'  in shebei_name:
                         tmp_table['供冷供热方式'] = 1
                     else:
                         tmp_table['供冷供热方式'] = 2
@@ -345,24 +352,28 @@ def func_filling_table():
         else:
             pass
         return B
-
     table_jibiao1.fillna(0, inplace=True)  # 首先对基表中的所有空值填充为0
+    # print(raw_para05)
+
+    table_jianzhu02[raw_para05] = table_jianzhu02[raw_para05].astype(str)
     for i in range(table_jibiao1.shape[0]):  # 对于基表1中所有单位的循环
         table_jibiao1.loc[i, tar_para23] = xingzhengqu(table_jibiao1.loc[i, '所属行政区'])  # 调用函数，根据所在行政区填入对应代码
         name03 = table_jibiao1.loc[i, tar_para01]  # 获取的单位名称
         tmp_jianzhu = table_jianzhu02[table_jianzhu02[raw_para01] == name03]  # 临时表，用于存放某一单位的信息
         tmp_jianzhu = pd.DataFrame(tmp_jianzhu)  # 转为矩阵格式，应该可以删除
         tmp_jianzhu = tmp_jianzhu.reset_index(drop=True)  # 重新设置项目编号,此处全设为0
+        # print(tmp_jianzhu[raw_para05])
+        # tmp_jianzhu.to_csv('tmpppppppppp.csv',encoding = 'utf_8_sig')
 
-        tmp_number = table_jibiao1.loc[i, tar_para13]
-        if tmp_number != 0:
-            table_jibiao1.loc[i, tar_para13] = tmp_number[-8:].split()
+        tmp_number = table_jibiao1.loc[i, tar_para13]   #联系电话
+        if tmp_number != 0:   #对联系电话进行处理
+            table_jibiao1.loc[i, tar_para13] = tmp_number[-8:].split()   #后八位为号码
             table_jibiao1.loc[i, tar_para13] = str(table_jibiao1.loc[i, tar_para13])
             table_jibiao1.loc[i, tar_para13] = '025-' + table_jibiao1.loc[i, tar_para13]  # 号码前加上区号025
         else:
             table_jibiao1.loc[i, tar_para13] = tmp_number
 
-        if not tmp_jianzhu.empty:
+        if not tmp_jianzhu.empty:   #如果能够按名称匹配到信息
             tmp_jungongnianfen = tmp_jianzhu.loc[[0], '竣工年度']
             tmp_jungongnianfen = float(tmp_jungongnianfen)
             table_jibiao1.loc[[i], tar_para03] = tmp_jungongnianfen  # 竣工年度=竣工年度
@@ -373,6 +384,12 @@ def func_filling_table():
             table_jibiao1.loc[[i], tar_para04] = float(tmp_leixing)  # 建筑类型
 
             table_jibiao1.loc[[i], tar_para06] = float(tmp_jianzhu.loc[[0], '最高层数'])  # 建筑层数
+
+            tmp_gongneng = tmp_jianzhu.loc[0,raw_para05]
+            # tmp_gongneng = tmp_gongneng.astype(str)
+            # print(tmp_gongneng)
+            # print(tmp_gongneng[1])
+            table_jibiao1.loc[[i],'建筑功能02'] =  tmp_gongneng  #建筑功能原始字段存入
 
             table_jibiao1.loc[[i], '面积二'] = float(tmp_jianzhu.loc[[0], '最大面积'])  # 建筑层数
             table_jibiao1.loc[[i], tar_para07] = max(float(table_jibiao1.loc[[i], '面积一']),
@@ -395,11 +412,70 @@ def func_filling_table():
         else:
             pass
     table_jibiao2['建筑面积(平方米)'] = table_jibiao1[tar_para07]  # 建筑面积(平方米)   #用于判断筛选
+    table_jibiao2['建筑功能02'] = table_jibiao1['建筑功能02']  # 建筑面积(平方米)   #用于判断筛选
 
-    ##########  Step 08  保存表 ##########
+    # print(table_jibiao1['总用电'])
+    ########## Step08 计算能耗指标参数 ##########
+    def Danweimianjidianhao():   #单位面积电耗（kWh/㎡）
+        table_jibiao1['单位面积电耗(kWh/m2)'] = 0
+        try:
+            table_jibiao1['单位面积电耗(kWh/m2)'] = table_jibiao1['总用电']/table_jibiao1[tar_para07]   #总用电/建筑面积
+        except ValueError:
+            table_jibiao1['单位面积电耗(kWh/m2)'] = 0
+        table_jibiao1['单位面积电耗(kWh/m2)'] = round(table_jibiao1['单位面积电耗(kWh/m2)'],2)
+        table_jibiao2['单位面积电耗(kWh/m2)'] = table_jibiao1['单位面积电耗(kWh/m2)']
+    Danweimianjidianhao()
+
+    def Renjundianhao():   #人均电耗（kWh/p）
+        table_jibiao1['人均电耗(kWh/p)'] = 0
+        try:
+            table_jibiao1['人均电耗(kWh/p)'] = table_jibiao1['总用电']/table_jibiao1[tar_para26]   #总用电/用能人数
+        except ValueError:
+            table_jibiao1['人均电耗(kWh/p)'] = 0
+        table_jibiao1['人均电耗(kWh/p)'] = round(table_jibiao1['人均电耗(kWh/p)'],2)
+        table_jibiao2['人均电耗(kWh/p)'] = table_jibiao1['人均电耗(kWh/p)']
+    Renjundianhao()
+
+    def Danweimianjinenghao():   #单位面积能耗 （kgce/㎡）
+        table_jibiao1['单位面积能耗(kgce/m2)'] = 0
+        try:
+            table_jibiao1['单位面积能耗(kgce/m2)'] = (table_jibiao1['总用电']*Xishu_dian+table_jibiao1['天然气总用量']*Xishu_tianranqi)/\
+                                               table_jibiao1[tar_para07]   #(总用电*电转标煤系数+天然气总量*天然气转标煤系数)/建筑面积
+        except ValueError:
+            table_jibiao1['单位面积能耗(kgce/m2)'] = 0
+        table_jibiao1['单位面积能耗(kgce/m2)'] = round(table_jibiao1['单位面积能耗(kgce/m2)'],2)
+        table_jibiao2['单位面积能耗(kgce/m2)'] = table_jibiao1['单位面积能耗(kgce/m2)']
+    Danweimianjinenghao()
+
+    def Renjunzonghenenghao():
+        table_jibiao1['人均综合能耗(kgce/p)'] = 0
+        try:
+            table_jibiao1['人均综合能耗(kgce/p)'] = (table_jibiao1['总用电'] * Xishu_dian + table_jibiao1[
+                '天然气总用量'] * Xishu_tianranqi) /\
+                                               table_jibiao1[tar_para26]  # (总用电*电转标煤系数+天然气总量*天然气转标煤系数)/用能人数
+        except ValueError:
+            table_jibiao1['人均综合能耗(kgce/p)'] = 0
+        table_jibiao1['人均综合能耗(kgce/p)'] = round(table_jibiao1['人均综合能耗(kgce/p)'],2)
+        table_jibiao2['人均综合能耗(kgce/p)'] = table_jibiao1['人均综合能耗(kgce/p)']
+    Renjunzonghenenghao()
+
+    def Renjunshuihao():   #人均水耗（m³/p ）
+        table_jibiao1['人均水耗(m3/p)'] = 0
+        try:
+            table_jibiao1['人均水耗(m3/p)'] = table_jibiao1['总用水'] / table_jibiao1[tar_para26]  # (总用电*电转标煤系数+天然气总量*天然气转标煤系数)/用能人数
+        except ValueError:
+            table_jibiao1['人均水耗(m3/p)'] = 0
+        table_jibiao1['人均水耗(m3/p)'] = round(table_jibiao1['人均水耗(m3/p)'],2)
+        table_jibiao2['人均水耗(m3/p)'] = table_jibiao1['人均水耗(m3/p)']
+    Renjunshuihao()
+
+
+    ##########  Step 09  保存表 ##########
     save_filename01 = t['save_filename01']
     save_filename02 = t['save_filename02']
     # table_jibiao1 = table_jibiao1.drop(['面积一','面积二','所属行政区'], axis=1)   #上交的表需要把后面的删除
+    table_jibiao1.fillna(0, inplace=True)  # 首先对基表中的所有空值填充为0
+    table_jibiao2.fillna(0, inplace=True)  # 首先对基表中的所有空值填充为0
     table_jibiao1.to_csv(save_filename01, encoding='utf_8_sig', quoting=csv.QUOTE_NONNUMERIC)
     table_jibiao2.to_csv(save_filename02, encoding='utf_8_sig', quoting=csv.QUOTE_NONNUMERIC)
 

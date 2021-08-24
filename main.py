@@ -9,15 +9,17 @@ import pymysql
 import datetime
 import os.path
 import apprcc_rc
-import ExcelTEST001
-import ExcelTEST002_judge
-import ExcelTEST003_DBWrite002
 import ExcelTEST004_save_Func
 import ExcelTEST005_DB_test
 import skeleton
 import tab_horizontal_west
 import process_thread
 import cryptography
+import ExcelTEST004_save_Func
+import ExcelTEST005_DB_test
+import ExcelTEST002_judge02
+import ExcelTEST002_judge03
+import ExcelTEST004_save_Func_02
 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QStyleFactory

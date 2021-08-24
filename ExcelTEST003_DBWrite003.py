@@ -26,8 +26,8 @@ def DB_Write():
 
     file01_name = t['save_filename01']
     file02_name = t['save_filename02']
-    file01 = pd.read_csv(file01_name, encoding='utf_8')   #为筛选之前的表
-    file02 = pd.read_csv(file02_name, encoding='utf_8')
+    file01 = pd.read_csv(file01_name,encoding='utf_8')   #为筛选之前的表
+    file02 = pd.read_csv(file02_name,encoding='utf_8')
 
     db_target = pymysql.connect(host=host01,  # 连入配置信息所在数据库
                                 database=database01,
@@ -60,7 +60,9 @@ def DB_Write():
                       "联系人 VARCHAR(255) NOT NULL,联系电话 VARCHAR(255) NOT NULL,统计时间 VARCHAR(255) NOT NULL,面积一 VARCHAR(255) NOT NULL," \
                       "所属行政区 VARCHAR(255) NOT NULL,建筑功能01 VARCHAR(255) NOT NULL,总能耗千克标准煤 VARCHAR(255) NOT NULL," \
                       "面积均能耗 VARCHAR(255) NOT NULL, 总用水 VARCHAR(255) NOT NULL,总用电 VARCHAR(255) NOT NULL," \
-                      "天然气总用量 VARCHAR(255) NOT NULL,面积二 VARCHAR(255) NOT NULL)" % (table_name01)
+                      "天然气总用量 VARCHAR(255) NOT NULL,用能人数 VARCHAR(255) NOT NULL,建筑功能02 VARCHAR(255) NOT NULL," \
+                      "面积二 VARCHAR(255) NOT NULL,单位面积电耗 VARCHAR(255) NOT NULL,人均电耗 VARCHAR(255) NOT NULL," \
+                      "单位面积能耗 VARCHAR(255) NOT NULL,人均综合能耗 VARCHAR(255) NOT NULL,人均水耗 VARCHAR(255) NOT NULL)" % (table_name01)
         # creat_sql02 = "CREATE TABLE IF NOT EXISTS %s(tmp01 VARCHAR(100) NOT NULL)"%(table_name02)
         cursor.execute(creat_sql01)
 
@@ -89,18 +91,33 @@ def DB_Write():
             value22 = file01.iloc[i, 21]
             value23 = file01.iloc[i, 22]
             value24 = file01.iloc[i, 23]
-            value25 = file01.iloc[i, 24]
-            value26 = file01.iloc[i, 25]
+            value25 = file01.iloc[i, 24]   #天然气
+            value26 = file01.iloc[i, 25]   #用能人数
+            value27 = file01.iloc[i, 26]   #建筑功能02
+            value28 = file01.iloc[i, 27]   #面积二
+            value29 = file01.iloc[i, 28]   #单位面积电耗(kWh/m2)
+            value30 = file01.iloc[i, 29]   #人均电耗(kWh/p)
+            value31 = file01.iloc[i, 30]   #单位面积能耗(kgce/m2)
+            value32 = file01.iloc[i, 31]   #人均综合能耗(kgce/p)
+            value33 = file01.iloc[i, 32]   #人均水耗(m3/p)
+
+
+
+            #天然气总用量 VARCHAR(255) NOT NULL,用能人数 VARCHAR(255) NOT NULL,建筑功能02 VARCHAR(255) NOT NULL," \
+                      # "面积二 VARCHAR(255) NOT NULL,单位面积电耗kWh/m2,人均电耗kWh/p,单位面积能耗kgce/m2,人均综合能耗kgce/p,人均水耗m3/p
+
             insert_sql = "INSERT INTO %s(序号,建筑所属行政区划,建筑代码,建筑详细名称,建筑详细地址,竣工年度,建筑类型,建筑功能,建筑层数,建筑面积平方米,供热方式," \
                          "供冷方式,所执行的建筑节能标准,是否实施节能改造,联系人,联系电话,统计时间,面积一,所属行政区,建筑功能01,总能耗千克标准煤,面积均能耗," \
-                         "总用水,总用电,天然气总用量,面积二) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'" \
-                         ",'%s','%s','%s','%s','%s','%s','%s','%s','%s')" % (
+                         "总用水,总用电,天然气总用量,用能人数,建筑功能02,面积二,单位面积电耗,人均电耗,单位面积能耗," \
+                         "人均综合能耗,人均水耗) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'" \
+                         ",'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" % (
                          table_name01, str(value01), str(value02), str(value03), str(value04),
                          str(value05), str(value06), str(value07), str(value08), str(value09), str(value10),
                          str(value11), str(value12), str(value13),
                          str(value14), str(value15), str(value16), str(value17), str(value18), str(value19),
                          str(value20), str(value21), str(value22)
-                         , str(value23), str(value24), str(value25), str(value26))
+                         , str(value23), str(value24), str(value25), str(value26), str(value27), str(value28), str(value29)
+                         , str(value30), str(value31), str(value32),str(value33))
             cursor.execute(insert_sql)
     except:
         print('ERROR')
@@ -109,9 +126,13 @@ def DB_Write():
         creat_sql02 = "CREATE TABLE IF NOT EXISTS %s(序号 VARCHAR(255) NOT NULL,建筑代码 VARCHAR(255) NOT NULL, 建筑详细名称 VARCHAR(255) NOT NULL," \
                       "电力 VARCHAR(255) NOT NULL,天然气 VARCHAR(255) NOT NULL,水 VARCHAR(255) NOT NULL," \
                       "所属行政区 VARCHAR(255) NOT NULL,总能耗千克标准煤 VARCHAR(255) NOT NULL,面积均能耗 VARCHAR(255) NOT NULL,总用水 VARCHAR(255) NOT NULL," \
-                      "总用电 VARCHAR(255) NOT NULL,天然气总用量 VARCHAR(255) NOT NULL,建筑面积平方米 VARCHAR(255) NOT NULL)" % (table_name02)
+                      "总用电 VARCHAR(255) NOT NULL,天然气总用量 VARCHAR(255) NOT NULL,用能人数 VARCHAR(255) NOT NULL, 建筑面积平方米 VARCHAR(255) NOT NULL," \
+                      "建筑功能02 VARCHAR(255) NOT NULL,单位面积电耗 VARCHAR(255) NOT NULL,人均电耗 VARCHAR(255) NOT NULL," \
+                      "单位面积能耗 VARCHAR(255) NOT NULL,人均综合能耗 VARCHAR(255) NOT NULL,人均水耗 VARCHAR(255) NOT NULL)" % (table_name02)
         # creat_sql02 = "CREATE TABLE IF NOT EXISTS %s(tmp01 VARCHAR(100) NOT NULL)"%(table_name02)
         cursor.execute(creat_sql02)
+        # print(file02.iloc[:, 32])
+
         for i in range(file02.shape[0]):
             value001 = file02.iloc[i, 0]
             value002 = file02.iloc[i, 1]
@@ -124,14 +145,26 @@ def DB_Write():
             value009 = file02.iloc[i, 21]
             value010 = file02.iloc[i, 22]
             value011 = file02.iloc[i, 23]
-            value012 = file02.iloc[i, 24]
-            value013 = file02.iloc[i, 25]
+            value012 = file02.iloc[i, 24]   #天然气
+            value013 = file02.iloc[i, 25]   #用能人数
+            value014 = file02.iloc[i, 26]   #建筑面积平方米
+            value015 = file02.iloc[i, 27]   #建筑功能02
+            value016 = file02.iloc[i, 28]   #单位面积电耗(kWh/m2)
+            value017 = file02.iloc[i, 29]   #人均电耗(kWh/p)
+            value018 = file02.iloc[i, 30]   #单位面积能耗(kgce/m2)
+            value019 = file02.iloc[i, 31]   #人均综合能耗(kgce/p)
+            value020 = file02.iloc[i, 32]   #人均水耗(m3/p)
+
+    # 用能人数,建筑面积平方米,建筑功能02,单位面积电耗kWh/m2,人均电耗kWh/p,单位面积能耗kgce/m2,人均综合能耗kgce/p,人均水耗m3/p
+
 
             insert_sql02 = "INSERT INTO %s(序号,建筑代码,建筑详细名称,电力,天然气,水,所属行政区,总能耗千克标准煤,面积均能耗,总用水,总用电," \
-                         "天然气总用量,建筑面积平方米) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" % (
+                         "天然气总用量,用能人数,建筑面积平方米,建筑功能02,单位面积电耗,人均电耗,单位面积能耗,人均综合能耗," \
+                           "人均水耗) VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" % (
                              table_name02, str(value001), str(value002), str(value003), str(value004),
                              str(value005), str(value006), str(value007), str(value008), str(value009), str(value010),
-                             str(value011), str(value012), str(value013))
+                             str(value011), str(value012), str(value013), str(value014), str(value015), str(value016),
+                             str(value017), str(value018), str(value019), str(value020))
             cursor.execute(insert_sql02)
     except:
         print('ERROR')

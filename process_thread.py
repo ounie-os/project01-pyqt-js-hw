@@ -1,6 +1,7 @@
 from PyQt5.QtCore import QThread
-from ExcelTEST003_DBWrite002 import DB_Write
-from ExcelTEST001 import func_filling_table
+
+from ExcelTEST001_02 import func_filling_table
+from ExcelTEST003_DBWrite003 import DB_Write
 
 
 class generateTableThread(QThread):

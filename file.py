@@ -11,7 +11,9 @@ from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QLineEdit
 
 import ExcelTEST004_save_Func
 import ExcelTEST005_DB_test
-from ExcelTEST002_judge import judge
+from ExcelTEST002_judge02 import judge02
+from ExcelTEST002_judge03 import judge03
+from ExcelTEST004_save_Func_02 import save2
 from process_thread import generateTableThread, dbWriteThread
 from skeleton import Ui_MainWindow
 
@@ -25,6 +27,7 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.permit_db = set()
         self.generate_table_thread = generateTableThread()
         self.db_write_thread = dbWriteThread()
+        self.cur_dir = '.'
 
     def set_up_ui(self):
         self.setupUi(self)
@@ -126,31 +129,19 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         pass
 
     def init_data_screen_text(self):
-        judge_combox_list = [
-            self.comboBox,
-            self.comboBox_2,
-            self.comboBox_3,
-            self.comboBox_4,
-            self.comboBox_5,
-            self.comboBox_6,
+        judge_label_list = [
+            self.label,
+            self.label_24
         ]
-        judge_parameters_dict = self.config_obj.extract_raw_table_items('judge_parameters_ro')
+        judge_parameters_dict = self.config_obj.extract_raw_table_items('judge_parameters')
 
-        valid_count = 0
-
-        # 找出有多少个筛选条件
+        index = 0
         for v in judge_parameters_dict.values():
             if len(v) > 0:
-                valid_count += 1
-
-        for i in range(len(judge_combox_list)):
-            judge_combox_list[i].addItem("无")
-
-        for index in range(valid_count):
-            for v in judge_parameters_dict.values():
-                if len(v) > 0:
-                    judge_combox_list[index].addItem(v)
-            judge_combox_list[index].setCurrentIndex(0)
+                judge_label_list[index].setText(v)
+                index += 1
+            if index > len(judge_label_list):
+                break
 
     def fill_lineedit_placeholdertext(self, input_list, param1_str, param2_str):
         dict_items = self.config_obj.extract_raw_table_items(param1_str, param2_str)
@@ -178,15 +169,15 @@ class FileOperation(QMainWindow, Ui_MainWindow):
             self.lineEdit_25,
             self.lineEdit_26,
             self.lineEdit_27,
-            self.lineEdit_28
+            self.lineEdit_28,
+            self.lineEdit_32,
+            self.lineEdit_30,
+            self.lineEdit_31,
+            self.lineEdit_29
         ]
         self.fill_lineedit_placeholdertext(table_nengyuan_input_list, 'raw_parameters', 'table_nengyuan')
 
         table_jianzhu_input_list = [
-            self.lineEdit_29,
-            self.lineEdit_30,
-            self.lineEdit_31,
-            self.lineEdit_32,
             self.lineEdit_33,
             self.lineEdit_34,
             self.lineEdit_35,
@@ -194,18 +185,27 @@ class FileOperation(QMainWindow, Ui_MainWindow):
             self.lineEdit_37,
             self.lineEdit_38,
             self.lineEdit_39,
-            self.lineEdit_40
+            self.lineEdit_40,
+            self.lineEdit_44,
+            self.lineEdit_42,
+            self.lineEdit_43,
+            self.lineEdit_41
         ]
         self.fill_lineedit_placeholdertext(table_jianzhu_input_list, 'raw_parameters', 'table_jianzhu')
 
         table_shebei_input_list = [
-            self.lineEdit_41,
-            self.lineEdit_42,
-            self.lineEdit_43,
-            self.lineEdit_44
+            self.lineEdit_133,
+            self.lineEdit_130,
+            self.lineEdit_131,
+            self.lineEdit_132
         ]
 
         self.fill_lineedit_placeholdertext(table_shebei_input_list, 'raw_parameters', 'table_shebei')
+
+        self.lineEdit_46.setPlaceholderText(self.config_obj.extract_raw_table_items('Xishu_dian'))
+
+        self.lineEdit_47.setPlaceholderText(self.config_obj.extract_raw_table_items('Xishu_tianranqi'))
+
 
     def fill_lineedit_text(self, input_list, param1_str, param2_str):
         dict_items = self.config_obj.extract_raw_table_items(param1_str, param2_str)
@@ -228,9 +228,10 @@ class FileOperation(QMainWindow, Ui_MainWindow):
     @pyqtSlot()
     def on_pushButton_clicked(self):
         # 打开原表1
-        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', '.', 'Excel文件(*.xls *.xlsx)')
+        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', self.cur_dir, 'Excel文件(*.xls *.xlsx)')
         file_name_with_extension = os.path.basename(fname)
         file_dir = os.path.dirname(fname)
+        self.cur_dir = file_dir
         self.config_obj.modify_raw_table_items('filepath', v=file_dir + '/')
         self.config_obj.modify_raw_table_items('raw_tables', 'nengyuanziyuan', v=file_name_with_extension)
         self.label_6.setText(file_name_with_extension)
@@ -240,9 +241,10 @@ class FileOperation(QMainWindow, Ui_MainWindow):
     @pyqtSlot()
     def on_pushButton_2_clicked(self):
         # 打开原表2
-        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', '.', 'Excel文件(*.xls *.xlsx)')
+        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', self.cur_dir, 'Excel文件(*.xls *.xlsx)')
         file_name_with_extension = os.path.basename(fname)
         file_dir = os.path.dirname(fname)
+        self.cur_dir = file_dir
         self.config_obj.modify_raw_table_items('filepath', v=file_dir + '/')
         self.config_obj.modify_raw_table_items('raw_tables', 'jianzhuxinxi', v=file_name_with_extension)
         self.label_8.setText(file_name_with_extension)
@@ -252,9 +254,10 @@ class FileOperation(QMainWindow, Ui_MainWindow):
     @pyqtSlot()
     def on_pushButton_3_clicked(self):
         # 打开原表3
-        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', '.', 'Excel文件(*.xls *.xlsx)')
+        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', self.cur_dir, 'Excel文件(*.xls *.xlsx)')
         file_name_with_extension = os.path.basename(fname)
         file_dir = os.path.dirname(fname)
+        self.cur_dir = file_dir
         self.config_obj.modify_raw_table_items('filepath', v=file_dir + '/')
         self.config_obj.modify_raw_table_items('raw_tables', 'shebeixinxi', v=file_name_with_extension)
         self.label_10.setText(file_name_with_extension)
@@ -264,9 +267,10 @@ class FileOperation(QMainWindow, Ui_MainWindow):
     @pyqtSlot()
     def on_pushButton_4_clicked(self):
         # 基表1
-        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', '.', 'Excel文件(*.xls *.xlsx)')
+        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', self.cur_dir, 'Excel文件(*.xls *.xlsx)')
         file_name_with_extension = os.path.basename(fname)
         file_dir = os.path.dirname(fname)
+        self.cur_dir = file_dir
         self.config_obj.modify_raw_table_items('filepath', v=file_dir + '/')
         self.config_obj.modify_raw_table_items('target_table', 'Jibiao1', v=file_name_with_extension)
         self.label_12.setText(file_name_with_extension)
@@ -276,9 +280,10 @@ class FileOperation(QMainWindow, Ui_MainWindow):
     @pyqtSlot()
     def on_pushButton_5_clicked(self):
         # 基表2
-        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', '.', 'Excel文件(*.xls *.xlsx)')
+        fname, _ = QFileDialog.getOpenFileName(self, '打开文件', self.cur_dir, 'Excel文件(*.xls *.xlsx)')
         file_name_with_extension = os.path.basename(fname)
         file_dir = os.path.dirname(fname)
+        self.cur_dir = file_dir
         self.config_obj.modify_raw_table_items('filepath', v=file_dir + '/')
         self.config_obj.modify_raw_table_items('target_table', 'Jibiao2', v=file_name_with_extension)
         self.label_14.setText(file_name_with_extension)
@@ -296,6 +301,9 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         # 改变config.json里面的时间。暂时还未写入实际文件，待生成基表之前写入
         self.config_obj.modify_raw_table_items('table_data', v=date_str_today)
         self.calendarWidget.setHidden(True)
+        # 日期设置完毕后，焦点设置回到日历按钮
+        self.pushButton_6.setFocus()
+
 
     @pyqtSlot()
     def on_pushButton_8_clicked(self):
@@ -334,7 +342,7 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         save_filename01_name = self.config_obj.extract_raw_table_items('save_filename01_name')
         save_filename02_name = self.config_obj.extract_raw_table_items('save_filename02_name')
         save_filename011_name = self.config_obj.extract_raw_table_items('save_filename011_name')
-        save_filename022_name = self.config_obj.extract_raw_table_items('save_filename022_name')
+        save_filename022_name = self.config_obj.extract_raw_table_items('save_filename011_name')
         self.config_obj.modify_raw_table_items('save_filename01', v=save_dir + '/' + save_filename01_name)
         self.config_obj.modify_raw_table_items('save_filename02', v=save_dir + '/' + save_filename02_name)
         self.config_obj.modify_raw_table_items('judge_filename01', v=save_dir + '/' + save_filename01_name)
@@ -355,7 +363,11 @@ class FileOperation(QMainWindow, Ui_MainWindow):
             self.lineEdit_25,
             self.lineEdit_26,
             self.lineEdit_27,
-            self.lineEdit_28
+            self.lineEdit_28,
+            self.lineEdit_32,
+            self.lineEdit_30,
+            self.lineEdit_31,
+            self.lineEdit_29
         ]
 
         table_nengyuan_key_list = [
@@ -379,15 +391,18 @@ class FileOperation(QMainWindow, Ui_MainWindow):
 
         # 原表2
         table_jianzhu_input_list = [
-            self.lineEdit_29,
-            self.lineEdit_30,
-            self.lineEdit_31,
-            self.lineEdit_32,
             self.lineEdit_33,
             self.lineEdit_34,
             self.lineEdit_35,
             self.lineEdit_36,
-            self.lineEdit_37
+            self.lineEdit_37,
+            self.lineEdit_38,
+            self.lineEdit_39,
+            self.lineEdit_40,
+            self.lineEdit_44,
+            self.lineEdit_42,
+            self.lineEdit_43,
+            self.lineEdit_41
         ]
 
         table_jianzhu_key_list = [
@@ -407,8 +422,8 @@ class FileOperation(QMainWindow, Ui_MainWindow):
 
         # 原表3
         table_shebei_input_list = [
-            self.lineEdit_41,
-            self.lineEdit_42
+            self.lineEdit_133,
+            self.lineEdit_130
         ]
 
         table_shebei_key_list = [
@@ -429,38 +444,18 @@ class FileOperation(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot()
     def on_pushButton_13_clicked(self):
-        # 保存筛选结果到文件按钮
+        # 第一个筛选按钮对应的保存
 
-        ret = ExcelTEST004_save_Func.save()
+        ret, info = ExcelTEST004_save_Func.save()
         q = QMessageBox()
         if ret == 0:
             q.about(self, "提示", "成功")
         else:
-            q.about(self, "提示", "失败")
+            q.about(self, "提示", info)
 
     @pyqtSlot()
     def on_pushButton_12_clicked(self):
-        # 筛选按钮
-        # text_screen1对应第1个筛选条件的内容
-        text_screen1 = self.comboBox.currentText()
-        # 更新config.json文件中的judge_parameters
-        self.config_obj.modify_raw_table_items('judge_parameters', 'judge_para01',
-                                               v=text_screen1 if (text_screen1 != '无') else '')
-        text_screen2 = self.comboBox_2.currentText()
-        self.config_obj.modify_raw_table_items('judge_parameters', 'judge_para02',
-                                               v=text_screen2 if (text_screen2 != '无') else '')
-        text_screen3 = self.comboBox_3.currentText()
-        self.config_obj.modify_raw_table_items('judge_parameters', 'judge_para03',
-                                               v=text_screen3 if (text_screen3 != '无') else '')
-        text_screen4 = self.comboBox_4.currentText()
-        self.config_obj.modify_raw_table_items('judge_parameters', 'judge_para04',
-                                               v=text_screen4 if (text_screen4 != '无') else '')
-        text_screen5 = self.comboBox_5.currentText()
-        self.config_obj.modify_raw_table_items('judge_parameters', 'judge_para05',
-                                               v=text_screen5 if (text_screen5 != '无') else '')
-        text_screen6 = self.comboBox_6.currentText()
-        self.config_obj.modify_raw_table_items('judge_parameters', 'judge_para06',
-                                               v=text_screen6 if (text_screen6 != '无') else '')
+        # 第一个筛选按钮
 
         # 更新config.json文件中的judge_parameters_range
         max_screen1 = self.lineEdit.text()
@@ -475,48 +470,20 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         min_screen2 = self.lineEdit_4.text()
         self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range02', 'min',
                                                v=min_screen2 if len(min_screen2) else '')
-        max_screen3 = self.lineEdit_5.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range03', 'max',
-                                               v=max_screen3 if len(max_screen3) else '')
-        min_screen3 = self.lineEdit_6.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range03', 'min',
-                                               v=min_screen3 if len(min_screen3) else '')
-        max_screen4 = self.lineEdit_7.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range04', 'max',
-                                               v=max_screen4 if len(max_screen4) else '')
-        min_screen4 = self.lineEdit_8.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range04', 'min',
-                                               v=min_screen4 if len(min_screen4) else '')
-        max_screen5 = self.lineEdit_9.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range05', 'max',
-                                               v=max_screen5 if len(max_screen5) else '')
-        min_screen5 = self.lineEdit_10.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range05', 'min',
-                                               v=min_screen5 if len(min_screen5) else '')
-        max_screen6 = self.lineEdit_11.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range06', 'max',
-                                               v=max_screen6 if len(max_screen6) else '')
-        min_screen6 = self.lineEdit_12.text()
-        self.config_obj.modify_raw_table_items('judge_parameters_range', 'judge_range06', 'min',
-                                               v=min_screen6 if len(min_screen6) else '')
 
         f = open(self.config_obj.file_path, mode='w')
         json.dump(self.config_obj.file_py_obj, f, ensure_ascii=False, indent=4)
         f.flush()
         f.close()
 
-        judge()
+        judge02()
 
         with open('result.json') as f:
             result = json.load(f)
             rate = round(result['NumPer'], 2)
-            self.label_22.setText(str(result['raw_dataNum']))
-            self.label_40.setText(str(result['new_dataNum']))
-            self.label_41.setText(str(rate))
-
-    @pyqtSlot()
-    def on_pushButton_15_clicked(self):
-        self.tabWidget.setCurrentIndex(4)
+            self.label_29.setText(str(result['raw_dataNum']))
+            self.label_46.setText(str(result['new_dataNum']))
+            self.label_51.setText(str(rate))
 
     @pyqtSlot()
     def on_pushButton_16_clicked(self):
@@ -543,6 +510,21 @@ class FileOperation(QMainWindow, Ui_MainWindow):
             self.pushButton_16.setEnabled(True)
         else:
             q.information(self, "提示", error_reason)
+
+    @pyqtSlot()
+    def on_pushButton_14_clicked(self):
+        # 第二个筛选按钮
+        judge03()
+
+    @pyqtSlot()
+    def on_pushButton_15_clicked(self):
+        # 第二个保存按钮
+        save2()
+
+    @pyqtSlot()
+    def on_pushButton_18_clicked(self):
+        # 前进到数据库界面
+        self.tabWidget.setCurrentIndex(4)
 
     @pyqtSlot()
     def on_lineEdit_13_editingFinished(self):

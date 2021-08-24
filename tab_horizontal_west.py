@@ -12,7 +12,7 @@ class TabBar(QtWidgets.QTabBar):
         s.transpose()
 
         s.setWidth(120)
-        s.setHeight(60)
+        s.setHeight(70)
 
         return s
 
@@ -33,7 +33,7 @@ class TabBar(QtWidgets.QTabBar):
         font.setPointSize(16)
         self.setFont(font)
 
-        self.setGeometry(0, 275, 120, 300)
+        self.setGeometry(0, 250, 120, 350)
 
         for i in range(self.count()):
             self.initStyleOption(option, i)

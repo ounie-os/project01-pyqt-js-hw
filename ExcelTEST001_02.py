@@ -231,7 +231,7 @@ def func_filling_table():
 
     table_jianzhu02 = table_jianzhu_chuli02()  # 运行以上程序
 
-    table_jianzhu02.to_csv('tmpJianzhu02.csv',encoding='utf_8_sig')
+    # table_jianzhu02.to_csv('tmpJianzhu02.csv',encoding='utf_8_sig')
 
     ########### Step 06 原表3字段进行处理 ##########获取同一单位不同用能设备类型，并根据字段中是否包含关键字来判断供冷供热方式
     def table_shebei_chuli():  # 定义函数，对原表3进行处理

@@ -402,6 +402,7 @@ def judge03():
     result_json = json.dumps(result_json, ensure_ascii=False)
     tmp_f = open("result01_1.json", "w")
     tmp_f.write(result_json)
+    tmp_f.flush()
     tmp_f.close()
 
     return result_Jibiao01,result_Jibiao02

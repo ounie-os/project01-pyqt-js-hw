@@ -735,10 +735,13 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.pushButton_11.setEnabled(True)
         # 可以进行筛选
         self.pushButton_12.setEnabled(True)
+        self.pushButton_14.setEnabled(True)
         # 可以将筛选结果保存到文件
         self.pushButton_13.setEnabled(True)
+        self.pushButton_15.setEnabled(True)
         # 完成按钮可以点击
         self.pushButton_17.setEnabled(True)
+        self.pushButton_18.setEnabled(True)
 
         q = QMessageBox()
         q.information(self, "提示", "完成")
@@ -996,12 +999,16 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         save_filename02_name = self.config_obj.extract_raw_table_items('save_filename02_name')
         save_filename011_name = self.config_obj.extract_raw_table_items('save_filename011_name')
         save_filename022_name = self.config_obj.extract_raw_table_items('save_filename011_name')
+        save_filename0111_name = self.config_obj.extract_raw_table_items('save_filename0111_name')
+        save_filename0222_name = self.config_obj.extract_raw_table_items('save_filename0222_name')
         self.config_obj.modify_raw_table_items('save_filename01', v=save_dir + '/' + save_filename01_name)
         self.config_obj.modify_raw_table_items('save_filename02', v=save_dir + '/' + save_filename02_name)
         self.config_obj.modify_raw_table_items('judge_filename01', v=save_dir + '/' + save_filename01_name)
         self.config_obj.modify_raw_table_items('judge_filename02', v=save_dir + '/' + save_filename02_name)
         self.config_obj.modify_raw_table_items('save_filename011', v=save_dir + '/' + save_filename011_name)
         self.config_obj.modify_raw_table_items('save_filename022', v=save_dir + '/' + save_filename022_name)
+        self.config_obj.modify_raw_table_items('save_filename0111', v=save_dir + '/' + save_filename0111_name)
+        self.config_obj.modify_raw_table_items('save_filename0222', v=save_dir + '/' + save_filename0222_name)
 
         # 原表1
         table_nengyuan_input_list = [
@@ -1167,12 +1174,103 @@ class FileOperation(QMainWindow, Ui_MainWindow):
     @pyqtSlot()
     def on_pushButton_14_clicked(self):
         # 第二个筛选按钮
+
+        first_tree_name = ['Jiguan', 'Tiyu', 'Wenhua', 'Jiaoyu', 'Tuanti', 'Qitabangong', 'Keji', 'Weisheng', 'Qita']
+        second_tree_name = ['Danweimianjihaodianliang', 'Renjundianhao', 'Danweimianjinenghao', 'Renjunzonghenenghao',
+                            'Renjunshuihao']
+        value_list = [
+            {
+                second_tree_name[0]: [self.lineEdit_5, self.lineEdit_6],
+                second_tree_name[1]: [self.lineEdit_7, self.lineEdit_8],
+                second_tree_name[2]: [self.lineEdit_9, self.lineEdit_10],
+                second_tree_name[3]: [self.lineEdit_11, self.lineEdit_12],
+                second_tree_name[4]: [self.lineEdit_48, self.lineEdit_49]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_50, self.lineEdit_51],
+                second_tree_name[1]: [self.lineEdit_52, self.lineEdit_53],
+                second_tree_name[2]: [self.lineEdit_54, self.lineEdit_55],
+                second_tree_name[3]: [self.lineEdit_56, self.lineEdit_57],
+                second_tree_name[4]: [self.lineEdit_58, self.lineEdit_59]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_60, self.lineEdit_61],
+                second_tree_name[1]: [self.lineEdit_62, self.lineEdit_63],
+                second_tree_name[2]: [self.lineEdit_64, self.lineEdit_65],
+                second_tree_name[3]: [self.lineEdit_66, self.lineEdit_67],
+                second_tree_name[4]: [self.lineEdit_68, self.lineEdit_69]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_70, self.lineEdit_71],
+                second_tree_name[1]: [self.lineEdit_72, self.lineEdit_73],
+                second_tree_name[2]: [self.lineEdit_74, self.lineEdit_75],
+                second_tree_name[3]: [self.lineEdit_76, self.lineEdit_77],
+                second_tree_name[4]: [self.lineEdit_78, self.lineEdit_79]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_80, self.lineEdit_81],
+                second_tree_name[1]: [self.lineEdit_82, self.lineEdit_83],
+                second_tree_name[2]: [self.lineEdit_84, self.lineEdit_85],
+                second_tree_name[3]: [self.lineEdit_86, self.lineEdit_87],
+                second_tree_name[4]: [self.lineEdit_88, self.lineEdit_89]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_90, self.lineEdit_91],
+                second_tree_name[1]: [self.lineEdit_92, self.lineEdit_93],
+                second_tree_name[2]: [self.lineEdit_94, self.lineEdit_95],
+                second_tree_name[3]: [self.lineEdit_96, self.lineEdit_97],
+                second_tree_name[4]: [self.lineEdit_98, self.lineEdit_99]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_100, self.lineEdit_101],
+                second_tree_name[1]: [self.lineEdit_102, self.lineEdit_103],
+                second_tree_name[2]: [self.lineEdit_104, self.lineEdit_105],
+                second_tree_name[3]: [self.lineEdit_106, self.lineEdit_107],
+                second_tree_name[4]: [self.lineEdit_108, self.lineEdit_109]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_110, self.lineEdit_111],
+                second_tree_name[1]: [self.lineEdit_112, self.lineEdit_113],
+                second_tree_name[2]: [self.lineEdit_114, self.lineEdit_115],
+                second_tree_name[3]: [self.lineEdit_116, self.lineEdit_117],
+                second_tree_name[4]: [self.lineEdit_118, self.lineEdit_119]
+            },
+            {
+                second_tree_name[0]: [self.lineEdit_120, self.lineEdit_121],
+                second_tree_name[1]: [self.lineEdit_122, self.lineEdit_123],
+                second_tree_name[2]: [self.lineEdit_124, self.lineEdit_125],
+                second_tree_name[3]: [self.lineEdit_126, self.lineEdit_127],
+                second_tree_name[4]: [self.lineEdit_128, self.lineEdit_129]
+            },
+        ]
+
+        for i in range(len(first_tree_name)):
+            for j in range(len(second_tree_name)):
+                for k in range(2):
+                    self.config_obj.modify_raw_table_items(first_tree_name[i], second_tree_name[j],
+                                                           'max' if k == 0 else 'min',
+                                                           v=value_list[i][second_tree_name[j]][k].text())
+
+        self.config_obj.dump_to_file()
+
         judge03()
+
+        with open('result01_1.json') as f:
+            result = json.load(f)
+            rate = round(result['NumPer'], 2)
+            self.label_22.setText(str(result['raw_dataNum']))
+            self.label_40.setText(str(result['new_dataNum']))
+            self.label_41.setText(str(rate))
 
     @pyqtSlot()
     def on_pushButton_15_clicked(self):
         # 第二个保存按钮
-        save2()
+        ret, info = save2()
+        q = QMessageBox()
+        if ret == 0:
+            q.about(self, "提示", "成功")
+        else:
+            q.about(self, "提示", info)
 
     @pyqtSlot()
     def on_pushButton_18_clicked(self):
@@ -1223,6 +1321,16 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         """
         # print(self.lineEdit_17.text())
         pass
+
+    @pyqtSlot()
+    def on_lineEdit_46_editingFinished(self):
+        self.config_obj.modify_raw_table_items('Xishu_dian', v=self.lineEdit_46.text())
+        self.config_obj.dump_to_file()
+
+    @pyqtSlot()
+    def on_lineEdit_47_editingFinished(self):
+        self.config_obj.modify_raw_table_items('Xishu_tianranqi', v=self.lineEdit_47.text())
+        self.config_obj.dump_to_file()
 
     @pyqtSlot()
     def on_tabWidget_currentChanged(self):

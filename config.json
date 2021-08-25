@@ -1,5 +1,5 @@
 {
-    "filepath": "D:/python/py-qt-gui/测试表008/",
+    "filepath": "D:/python/py-qt-gui/测试表007/",
     "raw_tables": {
         "nengyuanziyuan": "公共机构能源资源消费统计分级汇总情况2020.xls",
         "jianzhuxinxi": "能耗综合查询-建筑物信息2020.xls",
@@ -82,8 +82,8 @@
             "tar_para_tmp006": ""
         }
     },
-    "table_data": "2021-08-24",
-    "Xishu_dian": "0.3",
+    "table_data": "2021-08-25",
+    "Xishu_dian": "0.9",
     "Xishu_tianranqi": "1.2143",
     "save_filename01_name": "001基表1_初始基表.csv",
     "save_filename02_name": "001基表2_初始基表.csv",
@@ -91,14 +91,6 @@
     "save_filename02": "D:/python/py-qt-gui/生成的基表456/001基表2_初始基表.csv",
     "judge_filename01": "D:/python/py-qt-gui/生成的基表456/001基表1_初始基表.csv",
     "judge_filename02": "D:/python/py-qt-gui/生成的基表456/001基表2_初始基表.csv",
-    "judge_parameters_ro": {
-        "judge_para01": "建筑面积(平方米)",
-        "judge_para02": "总能耗(千克标准煤)",
-        "judge_para03": "面积均能耗",
-        "judge_para04": "总用水",
-        "judge_para05": "总用电",
-        "judge_para06": "天然气总用量"
-    },
     "judge_parameters": {
         "judge_para01": "总用电",
         "judge_para02": "建筑面积(平方米)",
@@ -120,7 +112,7 @@
     "save_filename011_name": "002基表1_一次筛选.csv",
     "save_filename022_name": "002基表2_一次筛选.csv",
     "save_filename011": "D:/python/py-qt-gui/生成的基表456/002基表1_一次筛选.csv",
-    "save_filename022": "D:/python/py-qt-gui/生成的基表456/002基表2_一次筛选.csv",
+    "save_filename022": "D:/python/py-qt-gui/生成的基表456/002基表1_一次筛选.csv",
     "Jiguan": {
         "Leixing01": "机关办公建筑",
         "Danweimianjihaodianliang": {
@@ -130,8 +122,8 @@
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "10000",
-            "min": "200"
+            "max": "4444",
+            "min": "0"
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
@@ -153,13 +145,13 @@
         "Leixing02": "体育系统建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "10000",
-            "min": "100"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
@@ -181,13 +173,13 @@
         "Leixing03": "文化系统建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "10000",
-            "min": "100"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
@@ -209,13 +201,13 @@
         "Leixing04": "教育系统建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "50",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "10000",
-            "min": "100"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
@@ -237,149 +229,151 @@
         "Leixing05": "团体组织建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunzonghenenghao": {
             "name": "人均综合能耗(kgce/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunshuihao": {
             "name": "人均水耗(m3/p)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         }
     },
     "Qitabangong": {
         "Leixing06": "其他办公建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunzonghenenghao": {
             "name": "人均综合能耗(kgce/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunshuihao": {
             "name": "人均水耗(m3/p)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         }
     },
     "Keji": {
         "Leixing07": "科技系统建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunzonghenenghao": {
             "name": "人均综合能耗(kgce/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunshuihao": {
             "name": "人均水耗(m3/p)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         }
     },
     "Weisheng": {
         "Leixing08": "卫生系统建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunzonghenenghao": {
             "name": "人均综合能耗(kgce/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunshuihao": {
             "name": "人均水耗(m3/p)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         }
     },
     "Qita": {
         "Leixing09": "其他建筑",
         "Danweimianjihaodianliang": {
             "name": "单位面积电耗(kWh/m2)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjundianhao": {
             "name": "人均电耗(kWh/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Danweimianjinenghao": {
             "name": "单位面积能耗(kgce/m2)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunzonghenenghao": {
             "name": "人均综合能耗(kgce/p)",
-            "max": "100",
-            "min": "0"
+            "max": "",
+            "min": ""
         },
         "Renjunshuihao": {
             "name": "人均水耗(m3/p)",
-            "max": "200",
-            "min": "0"
+            "max": "",
+            "min": ""
         }
     },
-    "save_filename0111": "C:/Users/Mr.HW/Desktop/DataMining_test/003基表1_二次筛选.csv",
-    "save_filename0222": "C:/Users/Mr.HW/Desktop/DataMining_test/003基表2_二次筛选.csv",
+    "save_filename0111_name": "003基表1_二次筛选.csv",
+    "save_filename0222_name": "003基表2_二次筛选.csv",
+    "save_filename0111": "D:/python/py-qt-gui/生成的基表456/003基表1_二次筛选.csv",
+    "save_filename0222": "D:/python/py-qt-gui/生成的基表456/003基表2_二次筛选.csv",
     "DB_connect": {
-        "host": "localhost",
+        "host": "testnjut.mysql.rds.aliyuncs.com",
         "port": "3306",
-        "database": "my_test",
-        "username": "root",
-        "password": "huang123"
+        "database": "hw_test",
+        "username": "huang_test",
+        "password": "HWhuangwei123"
     }
 }

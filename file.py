@@ -5,7 +5,7 @@ import json
 import os.path
 import time
 
-from PyQt5 import QtCore
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import pyqtSlot, QDate
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QLineEdit
 
@@ -45,6 +45,15 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.init_data_screen_text()
 
         self.checkBox.stateChanged[int].connect(self.checkbox_change)
+        self.checkBox_2.stateChanged[int].connect(self.checkBox_2_change)
+        self.checkBox_8.stateChanged[int].connect(self.checkBox_8_change)
+        self.checkBox_14.stateChanged[int].connect(self.checkBox_14_change)
+        self.checkBox_20.stateChanged[int].connect(self.checkBox_20_change)
+        self.checkBox_26.stateChanged[int].connect(self.checkBox_26_change)
+        self.checkBox_32.stateChanged[int].connect(self.checkBox_32_change)
+        self.checkBox_38.stateChanged[int].connect(self.checkBox_38_change)
+        self.checkBox_44.stateChanged[int].connect(self.checkBox_44_change)
+        self.checkBox_50.stateChanged[int].connect(self.checkBox_50_change)
 
         self.generate_table_thread.started.connect(self.started_generate_table_thread)
         self.generate_table_thread.finished.connect(self.finished_generate_table_thread)
@@ -56,6 +65,652 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.checkBox.setFocusPolicy(QtCore.Qt.NoFocus)
 
         self.tabWidget.currentChanged.connect(self.on_tabWidget_currentChanged)
+
+    def label_border_radius_color_change(self, obj, status):
+        if status == 1:
+            obj.setStyleSheet("border:2px solid rgb(85, 170, 255);\n"
+                              "border-radius:6px;color: rgb(85, 170, 255);")
+        else:
+            obj.setStyleSheet("border:2px solid rgb(150, 150, 150);\n"
+                              "border-radius:6px;color: rgb(150, 150, 150);")
+
+    def font_color_change(self, obj, status):
+        if status == 1:
+            obj.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                              "font: 12pt \"黑体\";\n"
+                              "color: rgb(85, 170, 255);")
+        else:
+            obj.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                              "font: 12pt \"黑体\";\n"
+                              "color: rgb(150, 150, 150);")
+
+    def set_obj_enable(self, obj_list: [QtWidgets.QCheckBox], status: int):
+        if status == 1:
+            for obj in obj_list:
+                obj.setEnabled(True)
+        else:
+            for obj in obj_list:
+                obj.setChecked(False)
+                # emit必须加上参数，参数值任意，整数即可
+                # 通知复选框对应的输入框改变状态
+                obj.stateChanged.emit(1)
+                obj.setEnabled(False)
+
+    def set_widget_checkbox_color(self, label: QtWidgets.QLabel, main_obj: QtWidgets.QCheckBox,
+                                  child_obj_list: [QtWidgets.QCheckBox]):
+        '''筛选界面，勾选大标题，label和checkbox状态显示切换'''
+        if main_obj.isChecked():
+            # 被勾选，字体变成蓝色
+            self.label_border_radius_color_change(label, 1)
+            self.font_color_change(main_obj, 1)
+            self.set_obj_enable(child_obj_list, 1)
+        else:
+            self.label_border_radius_color_change(label, 0)
+            self.font_color_change(main_obj, 0)
+            self.set_obj_enable(child_obj_list, 0)
+
+    def set_lineEdit_enable(self, check_box_obj: QtWidgets.QCheckBox, line_edit_list: [QtWidgets.QLineEdit],
+                            label_list: [QtWidgets.QLabel]):
+        if check_box_obj.isChecked():
+            self.font_color_change(check_box_obj, 1)
+            for obj in label_list:
+                self.font_color_change(obj, 1)
+            for obj in line_edit_list:
+                obj.setEnabled(True)
+                self.font_color_change(obj, 1)
+        else:
+            self.font_color_change(check_box_obj, 0)
+            for obj in label_list:
+                self.font_color_change(obj, 0)
+            for obj in line_edit_list:
+                obj.setEnabled(False)
+                self.font_color_change(obj, 0)
+                obj.setText('')
+
+    def checkBox_2_change(self):
+        child_checkbox_list = [
+            self.checkBox_3,
+            self.checkBox_4,
+            self.checkBox_5,
+            self.checkBox_6,
+            self.checkBox_7
+        ]
+        self.set_widget_checkbox_color(self.label_54, self.checkBox_2, child_checkbox_list)
+
+    def on_checkBox_3_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_5,
+            self.lineEdit_6
+        ]
+        child_label_list = [
+            self.label_30,
+            self.label_31
+        ]
+        self.set_lineEdit_enable(self.checkBox_3, child_line_edit_list, child_label_list)
+
+    def on_checkBox_4_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_7,
+            self.lineEdit_8
+        ]
+        child_label_list = [
+            self.label_32,
+            self.label_33
+        ]
+        self.set_lineEdit_enable(self.checkBox_4, child_line_edit_list, child_label_list)
+
+    def on_checkBox_5_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_9,
+            self.lineEdit_10
+        ]
+        child_label_list = [
+            self.label_34,
+            self.label_35
+        ]
+        self.set_lineEdit_enable(self.checkBox_5, child_line_edit_list, child_label_list)
+
+    def on_checkBox_6_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_11,
+            self.lineEdit_12
+        ]
+        child_label_list = [
+            self.label_36,
+            self.label_37
+        ]
+        self.set_lineEdit_enable(self.checkBox_6, child_line_edit_list, child_label_list)
+
+    def on_checkBox_7_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_48,
+            self.lineEdit_49
+        ]
+        child_label_list = [
+            self.label_38,
+            self.label_53
+        ]
+        self.set_lineEdit_enable(self.checkBox_7, child_line_edit_list, child_label_list)
+
+    def checkBox_8_change(self):
+        child_checkbox_list = [
+            self.checkBox_9,
+            self.checkBox_10,
+            self.checkBox_11,
+            self.checkBox_12,
+            self.checkBox_13
+        ]
+        self.set_widget_checkbox_color(self.label_55, self.checkBox_8, child_checkbox_list)
+
+    def on_checkBox_9_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_50,
+            self.lineEdit_51
+        ]
+        child_label_list = [
+            self.label_56,
+            self.label_57
+        ]
+        self.set_lineEdit_enable(self.checkBox_9, child_line_edit_list, child_label_list)
+
+    def on_checkBox_10_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_52,
+            self.lineEdit_53
+        ]
+        child_label_list = [
+            self.label_58,
+            self.label_59
+        ]
+        self.set_lineEdit_enable(self.checkBox_10, child_line_edit_list, child_label_list)
+
+    def on_checkBox_11_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_54,
+            self.lineEdit_55
+        ]
+        child_label_list = [
+            self.label_60,
+            self.label_61
+        ]
+        self.set_lineEdit_enable(self.checkBox_11, child_line_edit_list, child_label_list)
+
+    def on_checkBox_12_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_56,
+            self.lineEdit_57
+        ]
+        child_label_list = [
+            self.label_62,
+            self.label_63
+        ]
+        self.set_lineEdit_enable(self.checkBox_12, child_line_edit_list, child_label_list)
+
+    def on_checkBox_13_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_58,
+            self.lineEdit_59
+        ]
+        child_label_list = [
+            self.label_64,
+            self.label_65
+        ]
+        self.set_lineEdit_enable(self.checkBox_13, child_line_edit_list, child_label_list)
+
+    def checkBox_14_change(self):
+        child_checkbox_list = [
+            self.checkBox_15,
+            self.checkBox_16,
+            self.checkBox_17,
+            self.checkBox_18,
+            self.checkBox_19
+        ]
+        self.set_widget_checkbox_color(self.label_66, self.checkBox_14, child_checkbox_list)
+
+    def on_checkBox_15_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_60,
+            self.lineEdit_61
+        ]
+        child_label_list = [
+            self.label_67,
+            self.label_68
+        ]
+        self.set_lineEdit_enable(self.checkBox_15, child_line_edit_list, child_label_list)
+
+    def on_checkBox_16_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_62,
+            self.lineEdit_63
+        ]
+        child_label_list = [
+            self.label_69,
+            self.label_70
+        ]
+        self.set_lineEdit_enable(self.checkBox_16, child_line_edit_list, child_label_list)
+
+    def on_checkBox_17_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_64,
+            self.lineEdit_65
+        ]
+        child_label_list = [
+            self.label_71,
+            self.label_72
+        ]
+        self.set_lineEdit_enable(self.checkBox_17, child_line_edit_list, child_label_list)
+
+    def on_checkBox_18_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_66,
+            self.lineEdit_67
+        ]
+        child_label_list = [
+            self.label_73,
+            self.label_74
+        ]
+        self.set_lineEdit_enable(self.checkBox_18, child_line_edit_list, child_label_list)
+
+    def on_checkBox_19_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_68,
+            self.lineEdit_69
+        ]
+        child_label_list = [
+            self.label_75,
+            self.label_76
+        ]
+        self.set_lineEdit_enable(self.checkBox_19, child_line_edit_list, child_label_list)
+
+    def checkBox_20_change(self):
+        child_checkbox_list = [
+            self.checkBox_21,
+            self.checkBox_22,
+            self.checkBox_23,
+            self.checkBox_24,
+            self.checkBox_25
+        ]
+        self.set_widget_checkbox_color(self.label_77, self.checkBox_20, child_checkbox_list)
+
+    def on_checkBox_21_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_70,
+            self.lineEdit_71
+        ]
+        child_label_list = [
+            self.label_78,
+            self.label_79
+        ]
+        self.set_lineEdit_enable(self.checkBox_21, child_line_edit_list, child_label_list)
+
+    def on_checkBox_22_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_72,
+            self.lineEdit_73
+        ]
+        child_label_list = [
+            self.label_80,
+            self.label_81
+        ]
+        self.set_lineEdit_enable(self.checkBox_22, child_line_edit_list, child_label_list)
+
+    def on_checkBox_23_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_74,
+            self.lineEdit_75
+        ]
+        child_label_list = [
+            self.label_82,
+            self.label_83
+        ]
+        self.set_lineEdit_enable(self.checkBox_23, child_line_edit_list, child_label_list)
+
+    def on_checkBox_24_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_76,
+            self.lineEdit_77
+        ]
+        child_label_list = [
+            self.label_84,
+            self.label_85
+        ]
+        self.set_lineEdit_enable(self.checkBox_24, child_line_edit_list, child_label_list)
+
+    def on_checkBox_25_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_78,
+            self.lineEdit_79
+        ]
+        child_label_list = [
+            self.label_86,
+            self.label_87
+        ]
+        self.set_lineEdit_enable(self.checkBox_25, child_line_edit_list, child_label_list)
+
+    def checkBox_26_change(self):
+        child_checkbox_list = [
+            self.checkBox_27,
+            self.checkBox_28,
+            self.checkBox_29,
+            self.checkBox_30,
+            self.checkBox_31
+        ]
+        self.set_widget_checkbox_color(self.label_88, self.checkBox_26, child_checkbox_list)
+
+    def on_checkBox_27_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_80,
+            self.lineEdit_81
+        ]
+        child_label_list = [
+            self.label_89,
+            self.label_90
+        ]
+        self.set_lineEdit_enable(self.checkBox_27, child_line_edit_list, child_label_list)
+
+    def on_checkBox_28_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_82,
+            self.lineEdit_83
+        ]
+        child_label_list = [
+            self.label_91,
+            self.label_92
+        ]
+        self.set_lineEdit_enable(self.checkBox_28, child_line_edit_list, child_label_list)
+
+    def on_checkBox_29_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_84,
+            self.lineEdit_85
+        ]
+        child_label_list = [
+            self.label_93,
+            self.label_94
+        ]
+        self.set_lineEdit_enable(self.checkBox_29, child_line_edit_list, child_label_list)
+
+    def on_checkBox_30_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_86,
+            self.lineEdit_87
+        ]
+        child_label_list = [
+            self.label_95,
+            self.label_96
+        ]
+        self.set_lineEdit_enable(self.checkBox_30, child_line_edit_list, child_label_list)
+
+    def on_checkBox_31_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_88,
+            self.lineEdit_89
+        ]
+        child_label_list = [
+            self.label_97,
+            self.label_98
+        ]
+        self.set_lineEdit_enable(self.checkBox_31, child_line_edit_list, child_label_list)
+
+    def checkBox_32_change(self):
+        child_checkbox_list = [
+            self.checkBox_33,
+            self.checkBox_34,
+            self.checkBox_35,
+            self.checkBox_36,
+            self.checkBox_37
+        ]
+        self.set_widget_checkbox_color(self.label_99, self.checkBox_32, child_checkbox_list)
+
+    def on_checkBox_33_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_90,
+            self.lineEdit_91
+        ]
+        child_label_list = [
+            self.label_100,
+            self.label_101
+        ]
+        self.set_lineEdit_enable(self.checkBox_33, child_line_edit_list, child_label_list)
+
+    def on_checkBox_34_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_92,
+            self.lineEdit_93
+        ]
+        child_label_list = [
+            self.label_102,
+            self.label_103
+        ]
+        self.set_lineEdit_enable(self.checkBox_34, child_line_edit_list, child_label_list)
+
+    def on_checkBox_35_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_94,
+            self.lineEdit_95
+        ]
+        child_label_list = [
+            self.label_104,
+            self.label_105
+        ]
+        self.set_lineEdit_enable(self.checkBox_35, child_line_edit_list, child_label_list)
+
+    def on_checkBox_36_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_96,
+            self.lineEdit_97
+        ]
+        child_label_list = [
+            self.label_106,
+            self.label_107
+        ]
+        self.set_lineEdit_enable(self.checkBox_36, child_line_edit_list, child_label_list)
+
+    def on_checkBox_37_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_98,
+            self.lineEdit_99
+        ]
+        child_label_list = [
+            self.label_106,
+            self.label_107
+        ]
+        self.set_lineEdit_enable(self.checkBox_37, child_line_edit_list, child_label_list)
+
+    def checkBox_38_change(self):
+        child_checkbox_list = [
+            self.checkBox_39,
+            self.checkBox_40,
+            self.checkBox_41,
+            self.checkBox_42,
+            self.checkBox_43
+        ]
+        self.set_widget_checkbox_color(self.label_110, self.checkBox_38, child_checkbox_list)
+
+    def on_checkBox_39_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_100,
+            self.lineEdit_101
+        ]
+        child_label_list = [
+            self.label_111,
+            self.label_112
+        ]
+        self.set_lineEdit_enable(self.checkBox_39, child_line_edit_list, child_label_list)
+
+    def on_checkBox_40_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_102,
+            self.lineEdit_103
+        ]
+        child_label_list = [
+            self.label_113,
+            self.label_114
+        ]
+        self.set_lineEdit_enable(self.checkBox_40, child_line_edit_list, child_label_list)
+
+    def on_checkBox_41_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_104,
+            self.lineEdit_105
+        ]
+        child_label_list = [
+            self.label_115,
+            self.label_116
+        ]
+        self.set_lineEdit_enable(self.checkBox_41, child_line_edit_list, child_label_list)
+
+    def on_checkBox_42_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_106,
+            self.lineEdit_107
+        ]
+        child_label_list = [
+            self.label_117,
+            self.label_118
+        ]
+        self.set_lineEdit_enable(self.checkBox_42, child_line_edit_list, child_label_list)
+
+    def on_checkBox_43_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_108,
+            self.lineEdit_109
+        ]
+        child_label_list = [
+            self.label_119,
+            self.label_120
+        ]
+        self.set_lineEdit_enable(self.checkBox_43, child_line_edit_list, child_label_list)
+
+    def checkBox_44_change(self):
+        child_checkbox_list = [
+            self.checkBox_45,
+            self.checkBox_46,
+            self.checkBox_47,
+            self.checkBox_48,
+            self.checkBox_49
+        ]
+        self.set_widget_checkbox_color(self.label_121, self.checkBox_44, child_checkbox_list)
+
+    def on_checkBox_45_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_110,
+            self.lineEdit_111
+        ]
+        child_label_list = [
+            self.label_122,
+            self.label_123
+        ]
+        self.set_lineEdit_enable(self.checkBox_45, child_line_edit_list, child_label_list)
+
+    def on_checkBox_46_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_112,
+            self.lineEdit_113
+        ]
+        child_label_list = [
+            self.label_124,
+            self.label_125
+        ]
+        self.set_lineEdit_enable(self.checkBox_46, child_line_edit_list, child_label_list)
+
+    def on_checkBox_47_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_114,
+            self.lineEdit_115
+        ]
+        child_label_list = [
+            self.label_126,
+            self.label_127
+        ]
+        self.set_lineEdit_enable(self.checkBox_47, child_line_edit_list, child_label_list)
+
+    def on_checkBox_48_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_116,
+            self.lineEdit_117
+        ]
+        child_label_list = [
+            self.label_128,
+            self.label_129
+        ]
+        self.set_lineEdit_enable(self.checkBox_48, child_line_edit_list, child_label_list)
+
+    def on_checkBox_49_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_118,
+            self.lineEdit_119
+        ]
+        child_label_list = [
+            self.label_130,
+            self.label_131
+        ]
+        self.set_lineEdit_enable(self.checkBox_49, child_line_edit_list, child_label_list)
+
+    def checkBox_50_change(self):
+        child_checkbox_list = [
+            self.checkBox_51,
+            self.checkBox_52,
+            self.checkBox_53,
+            self.checkBox_54,
+            self.checkBox_55
+        ]
+        self.set_widget_checkbox_color(self.label_132, self.checkBox_50, child_checkbox_list)
+
+    def on_checkBox_51_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_120,
+            self.lineEdit_121
+        ]
+        child_label_list = [
+            self.label_133,
+            self.label_134
+        ]
+        self.set_lineEdit_enable(self.checkBox_51, child_line_edit_list, child_label_list)
+
+    def on_checkBox_52_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_122,
+            self.lineEdit_123
+        ]
+        child_label_list = [
+            self.label_135,
+            self.label_136
+        ]
+        self.set_lineEdit_enable(self.checkBox_52, child_line_edit_list, child_label_list)
+
+    def on_checkBox_53_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_124,
+            self.lineEdit_125
+        ]
+        child_label_list = [
+            self.label_137,
+            self.label_138
+        ]
+        self.set_lineEdit_enable(self.checkBox_53, child_line_edit_list, child_label_list)
+
+    def on_checkBox_54_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_126,
+            self.lineEdit_127
+        ]
+        child_label_list = [
+            self.label_139,
+            self.label_140
+        ]
+        self.set_lineEdit_enable(self.checkBox_54, child_line_edit_list, child_label_list)
+
+    def on_checkBox_55_stateChanged(self):
+        child_line_edit_list = [
+            self.lineEdit_128,
+            self.lineEdit_129
+        ]
+        child_label_list = [
+            self.label_141,
+            self.label_142
+        ]
+        self.set_lineEdit_enable(self.checkBox_55, child_line_edit_list, child_label_list)
 
     def started_generate_table_thread(self):
         self.pushButton.setEnabled(False)
@@ -206,7 +861,6 @@ class FileOperation(QMainWindow, Ui_MainWindow):
 
         self.lineEdit_47.setPlaceholderText(self.config_obj.extract_raw_table_items('Xishu_tianranqi'))
 
-
     def fill_lineedit_text(self, input_list, param1_str, param2_str):
         dict_items = self.config_obj.extract_raw_table_items(param1_str, param2_str)
         # 填充实际文字
@@ -303,7 +957,6 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.calendarWidget.setHidden(True)
         # 日期设置完毕后，焦点设置回到日历按钮
         self.pushButton_6.setFocus()
-
 
     @pyqtSlot()
     def on_pushButton_8_clicked(self):
@@ -572,222 +1225,6 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         pass
 
     @pyqtSlot()
-    def on_lineEdit_18_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_19_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_20_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_21_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_22_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_23_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_24_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_25_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_26_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_27_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_28_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_29_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_30_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_31_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_32_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_33_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_34_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_35_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_36_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_37_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_38_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_39_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_40_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_41_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_42_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_43_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
-    def on_lineEdit_44_editingFinished(self):
-        """
-
-        :return:
-        """
-        pass
-
-    @pyqtSlot()
     def on_tabWidget_currentChanged(self):
         index = self.tabWidget.currentIndex()
         if index == 0:
@@ -809,6 +1246,12 @@ class MyConfig:
             file_fp.close()
         except FileNotFoundError as e:
             print(e)
+
+    def dump_to_file(self):
+        file_fp = open(self.file_path, mode='w')
+        json.dump(self.file_py_obj, file_fp, ensure_ascii=False, indent=4)
+        file_fp.flush()
+        file_fp.close()
 
     def extract_raw_table_items(self, *params):
         result = None

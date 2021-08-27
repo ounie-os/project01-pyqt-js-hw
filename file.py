@@ -3,6 +3,7 @@
 
 import json
 import os.path
+import sys
 import time
 
 from PyQt5 import QtCore, QtWidgets
@@ -30,6 +31,11 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.cur_dir = '.'
 
     def set_up_ui(self):
+        deadline = "9 4 2021"
+        dead_timestamp = round(time.mktime(time.strptime(deadline, '%m %d %Y')))
+        now_timestamp = round(time.time())
+        if dead_timestamp < now_timestamp:
+            sys.exit()
         self.setupUi(self)
         self.calendarWidget.setHidden(True)
         self.label_47.setHidden(True)
@@ -42,7 +48,7 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.show_label_date_now()
         self.set_up_signal_slot()
         self.init_placeholder_text()
-        self.init_data_screen_text()
+        # self.init_data_screen_text()
 
         self.checkBox.stateChanged[int].connect(self.checkbox_change)
         self.checkBox_2.stateChanged[int].connect(self.checkBox_2_change)
@@ -65,6 +71,137 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.checkBox.setFocusPolicy(QtCore.Qt.NoFocus)
 
         self.tabWidget.currentChanged.connect(self.on_tabWidget_currentChanged)
+        self.checkbox_name_ro_mapping = {
+            self.checkBox_2: 'Jiguan_ro',
+            self.checkBox_8: 'Tiyu_ro',
+            self.checkBox_14: 'Wenhua_ro',
+            self.checkBox_20: 'Jiaoyu_ro',
+            self.checkBox_26: 'Tuanti_ro',
+            self.checkBox_32: 'Qitabangong_ro',
+            self.checkBox_38: 'Keji_ro',
+            self.checkBox_44: 'Weisheng_ro',
+            self.checkBox_50: 'Qita_ro',
+
+            self.checkBox_3: 'Danweimianjihaodianliang',
+            self.checkBox_4: 'Renjundianhao',
+            self.checkBox_5: 'Danweimianjinenghao',
+            self.checkBox_6: 'Renjunzonghenenghao',
+            self.checkBox_7: 'Renjunshuihao',
+
+            self.checkBox_9: 'Danweimianjihaodianliang',
+            self.checkBox_10: 'Renjundianhao',
+            self.checkBox_11: 'Danweimianjinenghao',
+            self.checkBox_12: 'Renjunzonghenenghao',
+            self.checkBox_13: 'Renjunshuihao',
+
+            self.checkBox_15: 'Danweimianjihaodianliang',
+            self.checkBox_16: 'Renjundianhao',
+            self.checkBox_17: 'Danweimianjinenghao',
+            self.checkBox_18: 'Renjunzonghenenghao',
+            self.checkBox_19: 'Renjunshuihao',
+
+            self.checkBox_21: 'Danweimianjihaodianliang',
+            self.checkBox_22: 'Renjundianhao',
+            self.checkBox_23: 'Danweimianjinenghao',
+            self.checkBox_24: 'Renjunzonghenenghao',
+            self.checkBox_25: 'Renjunshuihao',
+
+            self.checkBox_27: 'Danweimianjihaodianliang',
+            self.checkBox_28: 'Renjundianhao',
+            self.checkBox_29: 'Danweimianjinenghao',
+            self.checkBox_30: 'Renjunzonghenenghao',
+            self.checkBox_31: 'Renjunshuihao',
+
+            self.checkBox_33: 'Danweimianjihaodianliang',
+            self.checkBox_34: 'Renjundianhao',
+            self.checkBox_35: 'Danweimianjinenghao',
+            self.checkBox_36: 'Renjunzonghenenghao',
+            self.checkBox_37: 'Renjunshuihao',
+
+            self.checkBox_39: 'Danweimianjihaodianliang',
+            self.checkBox_40: 'Renjundianhao',
+            self.checkBox_41: 'Danweimianjinenghao',
+            self.checkBox_42: 'Renjunzonghenenghao',
+            self.checkBox_43: 'Renjunshuihao',
+
+            self.checkBox_45: 'Danweimianjihaodianliang',
+            self.checkBox_46: 'Renjundianhao',
+            self.checkBox_47: 'Danweimianjinenghao',
+            self.checkBox_48: 'Renjunzonghenenghao',
+            self.checkBox_49: 'Renjunshuihao',
+
+            self.checkBox_51: 'Danweimianjihaodianliang',
+            self.checkBox_52: 'Renjundianhao',
+            self.checkBox_53: 'Danweimianjinenghao',
+            self.checkBox_54: 'Renjunzonghenenghao',
+            self.checkBox_55: 'Renjunshuihao',
+        }
+
+        self.checkbox_name_rw_mapping = {
+            self.checkBox_2: ('Jiguan', 'Leixing01'),
+            self.checkBox_8: ('Tiyu', 'Leixing02'),
+            self.checkBox_14: ('Wenhua', 'Leixing03'),
+            self.checkBox_20: ('Jiaoyu', 'Leixing04'),
+            self.checkBox_26: ('Tuanti', 'Leixing05'),
+            self.checkBox_32: ('Qitabangong', 'Leixing06'),
+            self.checkBox_38: ('Keji', 'Leixing07'),
+            self.checkBox_44: ('Weisheng', 'Leixing08'),
+            self.checkBox_50: ('Qita', 'Leixing09'),
+
+            self.checkBox_3: ('Jiguan', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_4: ('Jiguan', 'Renjundianhao', 'name'),
+            self.checkBox_5: ('Jiguan', 'Danweimianjinenghao', 'name'),
+            self.checkBox_6: ('Jiguan', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_7: ('Jiguan', 'Renjunshuihao', 'name'),
+
+            self.checkBox_9: ('Tiyu', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_10: ('Tiyu', 'Renjundianhao', 'name'),
+            self.checkBox_11: ('Tiyu', 'Danweimianjinenghao', 'name'),
+            self.checkBox_12: ('Tiyu', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_13: ('Tiyu', 'Renjunshuihao', 'name'),
+
+            self.checkBox_15: ('Wenhua', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_16: ('Wenhua', 'Renjundianhao', 'name'),
+            self.checkBox_17: ('Wenhua', 'Danweimianjinenghao', 'name'),
+            self.checkBox_18: ('Wenhua', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_19: ('Wenhua', 'Renjunshuihao', 'name'),
+
+            self.checkBox_21: ('Jiaoyu', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_22: ('Jiaoyu', 'Renjundianhao', 'name'),
+            self.checkBox_23: ('Jiaoyu', 'Danweimianjinenghao', 'name'),
+            self.checkBox_24: ('Jiaoyu', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_25: ('Jiaoyu', 'Renjunshuihao', 'name'),
+
+            self.checkBox_27: ('Tuanti', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_28: ('Tuanti', 'Renjundianhao', 'name'),
+            self.checkBox_29: ('Tuanti', 'Danweimianjinenghao', 'name'),
+            self.checkBox_30: ('Tuanti', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_31: ('Tuanti', 'Renjunshuihao', 'name'),
+
+            self.checkBox_33: ('Qitabangong', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_34: ('Qitabangong', 'Renjundianhao', 'name'),
+            self.checkBox_35: ('Qitabangong', 'Danweimianjinenghao', 'name'),
+            self.checkBox_36: ('Qitabangong', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_37: ('Qitabangong', 'Renjunshuihao', 'name'),
+
+            self.checkBox_39: ('Keji', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_40: ('Keji', 'Renjundianhao', 'name'),
+            self.checkBox_41: ('Keji', 'Danweimianjinenghao', 'name'),
+            self.checkBox_42: ('Keji', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_43: ('Keji', 'Renjunshuihao', 'name'),
+
+            self.checkBox_45: ('Weisheng', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_46: ('Weisheng', 'Renjundianhao', 'name'),
+            self.checkBox_47: ('Weisheng', 'Danweimianjinenghao', 'name'),
+            self.checkBox_48: ('Weisheng', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_49: ('Weisheng', 'Renjunshuihao', 'name'),
+
+            self.checkBox_51: ('Qita', 'Danweimianjihaodianliang', 'name'),
+            self.checkBox_52: ('Qita', 'Renjundianhao', 'name'),
+            self.checkBox_53: ('Qita', 'Danweimianjinenghao', 'name'),
+            self.checkBox_54: ('Qita', 'Renjunzonghenenghao', 'name'),
+            self.checkBox_55: ('Qita', 'Renjunshuihao', 'name')
+        }
 
     def label_border_radius_color_change(self, obj, status):
         if status == 1:
@@ -79,6 +216,16 @@ class FileOperation(QMainWindow, Ui_MainWindow):
             obj.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                               "font: 12pt \"黑体\";\n"
                               "color: rgb(85, 170, 255);")
+        else:
+            obj.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                              "font: 12pt \"黑体\";\n"
+                              "color: rgb(150, 150, 150);")
+
+    def subcheckbox_font_color_change(self, obj, status):
+        if status == 1:
+            obj.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                              "font: 12pt \"黑体\";\n"
+                              "color: rgb(0, 0, 0);")
         else:
             obj.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                               "font: 12pt \"黑体\";\n"
@@ -112,20 +259,32 @@ class FileOperation(QMainWindow, Ui_MainWindow):
     def set_lineEdit_enable(self, check_box_obj: QtWidgets.QCheckBox, line_edit_list: [QtWidgets.QLineEdit],
                             label_list: [QtWidgets.QLabel]):
         if check_box_obj.isChecked():
-            self.font_color_change(check_box_obj, 1)
+            self.subcheckbox_font_color_change(check_box_obj, 1)
             for obj in label_list:
-                self.font_color_change(obj, 1)
+                self.subcheckbox_font_color_change(obj, 1)
             for obj in line_edit_list:
                 obj.setEnabled(True)
-                self.font_color_change(obj, 1)
+                self.subcheckbox_font_color_change(obj, 1)
         else:
-            self.font_color_change(check_box_obj, 0)
+            self.subcheckbox_font_color_change(check_box_obj, 0)
             for obj in label_list:
-                self.font_color_change(obj, 0)
+                self.subcheckbox_font_color_change(obj, 0)
             for obj in line_edit_list:
                 obj.setEnabled(False)
-                self.font_color_change(obj, 0)
+                self.subcheckbox_font_color_change(obj, 0)
                 obj.setText('')
+
+    def update_checkbox_config_name(self, obj: QtWidgets.QCheckBox):
+        if obj.isChecked():
+            name_to_fill = self.checkbox_name_ro_mapping[obj]
+            name = self.config_obj.extract_raw_table_items(name_to_fill)
+            paths = self.checkbox_name_rw_mapping[obj]
+            self.config_obj.modify_raw_table_items(*paths, v=name)
+        else:
+            paths = self.checkbox_name_rw_mapping[obj]
+            self.config_obj.modify_raw_table_items(*paths, v="")
+
+        self.config_obj.dump_to_file()
 
     def checkBox_2_change(self):
         child_checkbox_list = [
@@ -806,6 +965,8 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         # 设置提示文字
         i = 0
         for k, v in dict_items.items():
+            if k == 'raw_para11':
+                continue
             if i < len(input_list) and isinstance(v, (str,)) and len(v):
                 input_list[i].setPlaceholderText(v)
                 i += 1
@@ -998,7 +1159,7 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         save_filename01_name = self.config_obj.extract_raw_table_items('save_filename01_name')
         save_filename02_name = self.config_obj.extract_raw_table_items('save_filename02_name')
         save_filename011_name = self.config_obj.extract_raw_table_items('save_filename011_name')
-        save_filename022_name = self.config_obj.extract_raw_table_items('save_filename011_name')
+        save_filename022_name = self.config_obj.extract_raw_table_items('save_filename022_name')
         save_filename0111_name = self.config_obj.extract_raw_table_items('save_filename0111_name')
         save_filename0222_name = self.config_obj.extract_raw_table_items('save_filename0222_name')
         self.config_obj.modify_raw_table_items('save_filename01', v=save_dir + '/' + save_filename01_name)
@@ -1138,7 +1299,7 @@ class FileOperation(QMainWindow, Ui_MainWindow):
 
         judge02()
 
-        with open('result.json') as f:
+        with open('result01.json') as f:
             result = json.load(f)
             rate = round(result['NumPer'], 2)
             self.label_29.setText(str(result['raw_dataNum']))
@@ -1250,6 +1411,72 @@ class FileOperation(QMainWindow, Ui_MainWindow):
                     self.config_obj.modify_raw_table_items(first_tree_name[i], second_tree_name[j],
                                                            'max' if k == 0 else 'min',
                                                            v=value_list[i][second_tree_name[j]][k].text())
+        all_checkbox_list = [self.checkBox_3,
+                             self.checkBox_4,
+                             self.checkBox_5,
+                             self.checkBox_6,
+                             self.checkBox_7,
+
+                             self.checkBox_9,
+                             self.checkBox_10,
+                             self.checkBox_11,
+                             self.checkBox_12,
+                             self.checkBox_13,
+
+                             self.checkBox_15,
+                             self.checkBox_16,
+                             self.checkBox_17,
+                             self.checkBox_18,
+                             self.checkBox_19,
+
+                             self.checkBox_21,
+                             self.checkBox_22,
+                             self.checkBox_23,
+                             self.checkBox_24,
+                             self.checkBox_25,
+
+                             self.checkBox_27,
+                             self.checkBox_28,
+                             self.checkBox_29,
+                             self.checkBox_30,
+                             self.checkBox_31,
+
+                             self.checkBox_33,
+                             self.checkBox_34,
+                             self.checkBox_35,
+                             self.checkBox_36,
+                             self.checkBox_37,
+
+                             self.checkBox_39,
+                             self.checkBox_40,
+                             self.checkBox_41,
+                             self.checkBox_42,
+                             self.checkBox_43,
+
+                             self.checkBox_45,
+                             self.checkBox_46,
+                             self.checkBox_47,
+                             self.checkBox_48,
+                             self.checkBox_49,
+
+                             self.checkBox_51,
+                             self.checkBox_52,
+                             self.checkBox_53,
+                             self.checkBox_54,
+                             self.checkBox_55,
+
+                             self.checkBox_2,
+                             self.checkBox_8,
+                             self.checkBox_14,
+                             self.checkBox_20,
+                             self.checkBox_26,
+                             self.checkBox_32,
+                             self.checkBox_38,
+                             self.checkBox_44,
+                             self.checkBox_50,
+                             ]
+        for checkbox_obj in all_checkbox_list:
+            self.update_checkbox_config_name(checkbox_obj)
 
         self.config_obj.dump_to_file()
 

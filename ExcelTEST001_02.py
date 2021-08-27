@@ -359,7 +359,7 @@ def func_filling_table():
     for i in range(table_jibiao1.shape[0]):  # 对于基表1中所有单位的循环
         table_jibiao1.loc[i, tar_para23] = xingzhengqu(table_jibiao1.loc[i, '所属行政区'])  # 调用函数，根据所在行政区填入对应代码
         name03 = table_jibiao1.loc[i, tar_para01]  # 获取的单位名称
-        tmp_jianzhu = table_jianzhu02[table_jianzhu02[raw_para01] == name03]  # 临时表，用于存放某一单位的信息
+        tmp_jianzhu = table_jianzhu02[table_jianzhu02[raw_para19] == name03]  # 临时表，用于存放某一单位的信息
         tmp_jianzhu = pd.DataFrame(tmp_jianzhu)  # 转为矩阵格式，应该可以删除
         tmp_jianzhu = tmp_jianzhu.reset_index(drop=True)  # 重新设置项目编号,此处全设为0
         # print(tmp_jianzhu[raw_para05])

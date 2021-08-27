@@ -224,6 +224,7 @@ def judge03():
         jianzhu_gongneng = '建筑功能02'
         file = pd.DataFrame(file)
         if name == '':   #如果未选择改建筑类型，则跳过。
+            file01 = pd.DataFrame(columns=['empty'])
             pass
         else:
             file01 = file[file.loc[:,jianzhu_gongneng] == name]   #将类型为name的数据全部拿出来
@@ -357,9 +358,13 @@ def judge03():
     # print(result_Jibiao02.shape[0])
 
     def Zhanbi(raw,new):
-        aa = new/raw
-        aa = aa*100
-        aa = round(aa,2)
+        if raw != 0:
+            aa = new / raw
+            aa = aa * 100
+            aa = round(aa, 2)
+        else:
+            new = 0
+            aa = 0
         return new,aa
     N1,P1 = Zhanbi(raw_dataNum,file00011.shape[0])   #类型一占比，机关
     N2,P2 = Zhanbi(raw_dataNum, file00022.shape[0])  # 类型一占比，机关

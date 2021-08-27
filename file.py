@@ -671,8 +671,8 @@ class FileOperation(QMainWindow, Ui_MainWindow):
             self.lineEdit_99
         ]
         child_label_list = [
-            self.label_106,
-            self.label_107
+            self.label_108,
+            self.label_109
         ]
         self.set_lineEdit_enable(self.checkBox_37, child_line_edit_list, child_label_list)
 

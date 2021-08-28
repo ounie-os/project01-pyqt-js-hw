@@ -49,6 +49,7 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.set_up_signal_slot()
         self.init_placeholder_text()
         # self.init_data_screen_text()
+        self.init_tooltip()
 
         self.checkBox.stateChanged[int].connect(self.checkbox_change)
         self.checkBox_2.stateChanged[int].connect(self.checkBox_2_change)
@@ -202,6 +203,13 @@ class FileOperation(QMainWindow, Ui_MainWindow):
             self.checkBox_54: ('Qita', 'Renjunzonghenenghao', 'name'),
             self.checkBox_55: ('Qita', 'Renjunshuihao', 'name')
         }
+
+    def init_tooltip(self):
+        self.pushButton.setToolTip(self.config_obj.extract_raw_table_items('hint1'))
+        self.pushButton_2.setToolTip(self.config_obj.extract_raw_table_items('hint2'))
+        self.pushButton_3.setToolTip(self.config_obj.extract_raw_table_items('hint3'))
+        self.pushButton_4.setToolTip(self.config_obj.extract_raw_table_items('hint4'))
+        self.pushButton_5.setToolTip(self.config_obj.extract_raw_table_items('hint5'))
 
     def label_border_radius_color_change(self, obj, status):
         if status == 1:

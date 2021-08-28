@@ -1,5 +1,10 @@
 {
-    "filepath": "D:/python/py-qt-gui/测试表007/",
+    "hint1": "请选择能源表",
+	"hint2": "",
+	"hint3": "",
+	"hint4": "",
+	"hint5": "",
+	"filepath": "D:/python/py-qt-gui/测试表007/",
     "raw_tables": {
         "nengyuanziyuan": "公共机构能源资源消费统计分级汇总情况2020.xls",
         "jianzhuxinxi": "能耗综合查询-建筑物信息2020.xls",

@@ -31,11 +31,6 @@ class FileOperation(QMainWindow, Ui_MainWindow):
         self.cur_dir = '.'
 
     def set_up_ui(self):
-        deadline = "9 4 2021"
-        dead_timestamp = round(time.mktime(time.strptime(deadline, '%m %d %Y')))
-        now_timestamp = round(time.time())
-        if dead_timestamp < now_timestamp:
-            sys.exit()
         self.setupUi(self)
         self.calendarWidget.setHidden(True)
         self.label_47.setHidden(True)
